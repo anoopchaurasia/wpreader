@@ -37,7 +37,7 @@ lib.FillContent = function (me) {
 														// only thats why we
 														// need tags
 		}
-		
+
 		if (myStr.length > max) {
 			var c;
 			while (max > 0) {
@@ -74,7 +74,7 @@ lib.FillContent = function (me) {
 		return [ max + 1, totalLen ];
 	};
 	function charsPerLine( dom ) {
-		
+
 		var target_width = dom.width(); // line width
 		var text = 'I want to know how many chars of this text fit.';
 		var span = document.createElement('span');
@@ -95,20 +95,6 @@ lib.FillContent = function (me) {
 		var step = 3;
 		var lastCharOffset = dom.htmlTruncate(from, totalChars);
 		var decrease = 0, firstP = true;
-		//var relativeHeight = dom.get(0).offsetTop + ownHeight;
-		//var all = dom.find("*");
-		// for ( var i = 0; i < all.length; i++) {
-		// 	if (relativeHeight < all[i].offsetTop) {
-		// 		jQuery(all[i]).remove();
-		// 	}
-		// 	else if(all[i].nodeName != 'BR' && jQuery(all[i]).text() == ""){
-		// 		 jQuery(all[i]).remove();
-		// 	}
-		// 	else if(firstP && all[i].nodeName == "P" ){
-		// 		$(all[i]).css("margin-top","0px");
-		// 		firstP = false;
-		// 	}
-		// }
 		var totalLen = lastCharOffset[1];
 		var count = 0;
 		var diff = dom.get(0).scrollHeight - ownHeight;
@@ -128,12 +114,11 @@ lib.FillContent = function (me) {
 			count++;
 			diff = dom.get(0).scrollHeight - ownHeight;
 			decrease = Math.floor((diff / lineHeight -1 ) * cpl / 1.7);
-			if (decrease <= 0) {
+			if (decrease <= step) {
 				decrease = step;
 			}
 		}
-		dom.html(dom.html().replace(/<\/a>/mgi, "</a> "));
- 	//	console.log(count);
+		dom.html( dom.html().replace(/<\/a>/mgi, "</a> "));
 		return [ from + lastCharOffset[0], totalLen - from - lastCharOffset[0] ];
 	};
 	this.FillContent = function( ) {
