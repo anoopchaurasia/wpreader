@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <style type="text/css">
+      body, html {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        -ms-content-zooming: none;
+        -ms-touch-action:none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+    </style> 
+    <link rel="icon" type="image/ico" href="/img/home.jpg" />
+    <link type="text/css" rel="stylesheet" href='/css/reader.css' />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery-swipe.js"></script>
+    <script type="text/javascript" src="/js/jsfm.js"></script>
+    <script>
+      fm.basedir = '/js/src';
+    </script>
+    <style type="text/css">
+      .left-panel .items{
+        padding: 5px 0 0 20px;
+        font-size: 20px;
+        line-height: 1.5em;
+        vertical-align: middle;
+      }
+      .left-panel .items a{
+        text-decoration: none;
+        display: inline-block;
+      }
+      .right-panel .vertical-news-container{
+      cursor: pointer;
+      }
+      .setting{
+      margin:10px 0 0 20px;
+      }
+      #article-list{
+      overflow: hidden;
+      }
+    </style>
+    <script id="/html/article.html" type="text/template">
+      <div style="overflow:hidden;">
+	      <div fm-name='articleContainer' id="articleContainer">
+	      </div>
+	      <br style="clear:both" />
+      </div>
+    </script>
+    <script id="/html/article.html" type="text/template">
+      <div style="overflow:hidden;">
+	      <div fm-name='articleContainer' id="articleContainer">
+	      </div>
+	      <br style="clear:both" />
+      </div>
+    </script>
+    <script id="/html/article.view.html" type="text/template">
+      <div style="width:100%" id="articleContContainer">
+      </div>
+    </script>
+    <script id="/html/articles.html" type="text/template">
+      <div id="article-list" style="height: 90%; width: 98%;">
+        <div style="width: 100%;">
+            <h2 fm-bind="articles.title"></h2>
+            <div style="overflow:auto" fm-name="articleMove">
+                <div fm-repeat="item in articles.items">
+                    <div fm-click="showArticle(item.id)" class="newsSnippet" >
+                        <div fm-hide="!item.thumbnail" class="brief-image">
+                            <img fm-src="{{item.thumbnail}}">
+                        </div>
+                        <div class="brief-title">
+                            <h2 class="title" fm-bind="item.title">
+                            </h2>
+                        </div>
+                        <div fm-hide="verticleAlign" class="brief-body">
+                            <p fm-bind="item.contentSnippet"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearboth" ></div>
+            </div>
+            <div class="clearboth" ></div>
+        </div>
+        <br class="clearboth" />
+    </div>
+    </script>
+    <script id="/html/settings.html" type="text/template">
+      <div id="settingPopup" class="setting-popup">
+        <ul>
+          <li>
+            <div>FONT SIZE</div>
+            <div>
+              <div fm-click="applyFontSize(10)" class="font-size f_10">
+                Aa
+              </div>
+              <div fm-click="applyFontSize(15)" class="font-size f_15">
+                Aa
+              </div>
+              <div fm-click="applyFontSize(20)" class="font-size f_20">
+                Aa
+              </div>
+              <div fm-click="applyFontSize(25)" class="font-size f_25">
+                Aa
+              </div>
+              <div fm-click="applyFontSize(30)" class="font-size f_30">
+                Aa
+              </div>
+            </div>
+          </li>
+        </ul>
+        <br class='clearboth' />
+          <ul>
+            <li>
+              <div>COLOR MODE</div>
+              <br class='clearboth'>
+                <div>
+                  <div fm-click="applyColors({color:'black','background-color':'white'})" class="color_mode black_white">
+                    White
+                  </div>
+                  <div fm-click="applyColors({color:'#5F4B32','background-color':'#FBF0D9'})" class="color_mode c5F4B32_bFBF0D9">
+                    Sepia
+                  </div>
+                  <div fm-click="applyColors({color:'white','background-color':'black'})" class="color_mode white_black">
+                    Black
+                  </div>
+                </div>
+              </li>
+          </ul>
+          <div style="text-align: right; margin-right:10%;margin-top: 19px;">
+            <button style="padding: 3px 15px;
+      border-radius: 3px;" fm-click="close()">Close</button>
+          </div>
+        </div>
+    </script>
+    <script id="/html/sources.html" type="text/template">
+      <div fm-style="height:windowheight" style="overflow:auto;">
+        <div>
+            <img style="max-width:100%" src="/img/home.png" />
+        </div>
+        <button fm-click="addAFeedSource()">+add</button>
+        <div fm-repeat="item in sources.items">
+            <div class="items">
+                <a fm-href="#/source/{{item.id}}">
+                    <img style="max-width:30px; min-width:20px;" fm-src='{{item.thumbnail}}' />
+                    <span fm-hide="hideText" fm-bind="item.name"></span> 
+                </a>
+            </div>
+        </div>        
+      </div>
+    </script>
+    <script id="/html/addfeedsource.html" type="text/template">
+      <div  class="newFeedForm">
+        <form fm-name="feedform">
+          <ul>
+            <li>
+              <lable>
+                <span>Name:</span> <input fm-name="name"/>
+              </lable>
+            </li>
+            <li>
+              <lable>
+                <span>URL:</span> <input fm-name="url"/>
+              </lable>
+             </li>
+            <li>
+              <lable>
+                <span>Logo:</span> <input fm-name="logo"/>
+              </lable>
+            </li>
+            <li class="aligncenter">
+              <lable>
+                <input type="submit" value="Save"/>
+              </lable>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </script>
+    <script id="/html/home.view.html" type="text/template">
+      <div class="left-panel" id="sourceList" >
+        <br style="clear: both" /> 
+      </div>
+    </script>
+    <script id="/html/newslist.view.html" type="text/template">
+      <div class="right-panel" id="dynamic">
+      </div>
+    </script>
+  </head>
+  <body>
+    <div id="main" style="height:100%">
+      <div id="view">
+      </div>
+      <div id="taskmanager"  ></div>
+    </div>
+    <script type="text/javascript">
+      jQuery.support.cors = true;
+      fm.Include("com.reader.Reader");
+    </script>
+  </body>
+</html>

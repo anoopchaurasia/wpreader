@@ -1,0 +1,272 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+p{
+	margin-top: 1em;
+}
+
+h1{
+	font-size: 1.1em;
+	padding: 0px 0 10px 0px;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.aligncenter{
+	text-align:center;
+}
+body {
+	margin: 0;
+	left: 50%;
+	font-family: Georgia,  serif, Verdana, Helvetica, sans-serif;
+	text-align: justify;
+	background-color: white;
+	font-size: 11px;
+	color: black;
+}
+
+
+
+.s {
+	overflow: hidden;
+	line-height: 1.2em;
+	margin: 5px;
+	height: 200px;
+	padding: 0 10px;
+	width: 290px;
+	lineHeight: 1.2em;
+}
+
+.parent {
+	padding: 4px;
+	border: 1px dotted transparent;
+	margin-bottom: 5px;
+	float: left;
+}
+
+.text-inside-image {
+	padding: 5px;
+	float: left;
+}
+
+
+.item-item-cont h2 {
+	margin: 5px 6px;
+}
+
+
+
+
+#taskbar {
+	bottom: 30px;
+ 	left: 0;
+	height: 30px;
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+}
+
+#article-container .title {
+	white-space: nowrap;
+}
+
+#article-container .title {
+	margin: 3px;
+}
+
+.newsSnippet {
+	border: 1px solid #CCCCCC;
+	float: left;
+	width:100%;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	overflow: hidden;
+	padding: 5px;
+}
+
+.newsSnippet p,.newsSnippet h2 {
+	margin: 0;
+}
+
+.newsSnippet h2 {
+	font-size: 1.1em;
+}
+
+.brief-body {
+	font-size: 1em;
+}
+
+.newsSnippet .brief-image {
+	float: left;
+	margin-right: 13px;
+}
+
+.newsSnippet .brief-image img {
+	max-height: 50px;
+	max-width: 100px;
+}
+
+.item-item-cont {
+	float: left;
+	margin-right: 10px;
+}
+
+#article-list {
+	font-size: 14px;
+}
+
+.selected {
+	border: 1px dotted #CCCCCC;
+}
+
+.column-selected {
+	border-color: #CCCCCC;
+}
+
+.image-container {
+	text-align: center;
+	width: 490px;
+	overflow: hidden;
+}
+
+.imageContainer {
+	float: left;
+	padding: 9px;
+}
+
+.vertical-news-container {
+	float: left;
+}
+
+.right-float {
+	float: right;
+}
+
+.setting-popup{
+	position: absolute;
+	top: 100px;
+	background-color: #5F5454;
+	color: #fff;
+	width: 350px;
+	margin-left: -175px;
+	padding: 20px;
+	z-index: 2;
+	left: 50%;
+	min-height: 100px;
+	border: 5px double #ccc;
+	border-radius: 12px;
+}
+.clearboth{
+	clear: both;
+}
+.font-size{
+	width: 18%;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	vertical-align: bottom;
+	padding: 1%;
+	font-family: verdana;
+}
+
+.font-size.f_10{
+	font-size: 10px;
+	margin-top:8px;
+}
+.font-size.f_15{
+	font-size: 15px;
+	margin-top:7px;
+}
+.font-size.f_20{
+	font-size: 20px;
+	margin-top:6px;
+}
+.font-size.f_25{
+	font-size: 25px;
+	margin-top:3px;
+}
+.font-size.f_30{
+	font-size: 30px;
+	margin-top:3px;
+}
+
+.color_mode{
+	display: inline-block;
+	width: 13%;
+	text-align: center;
+	padding: 16px 3%;
+	margin: 2px 6%;
+	cursor: pointer;
+	border-radius: 8px;
+	border: 2px solid #ccc;
+} 
+
+.black_white{
+	color: black;
+	background-color: white;
+}
+.white_black{
+	color: white;
+	background-color: black;
+}
+.c5F4B32_bFBF0D9{
+	color: #5F4B32;
+	background-color: #FBF0D9;
+}
+
+a{
+	color: inherit;
+}
+.newFeedForm{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background-color: inherit;
+}
+.newFeedForm {
+	font-size:1.3em;
+	line-height:2.0em;
+}
+.newFeedForm li{
+	padding:20px 0 0 0;
+}
+.newFeedForm span{
+	display:inline-block;
+	width:20%;
+	text-align:right;
+}
+.newFeedForm input{
+	 padding:10px 5px;
+	 width: 70%
+}
