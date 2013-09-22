@@ -7,11 +7,10 @@ com.reader.article.ArticleListController = function ( me, Articles, Settings, So
     'use strict';
     this.setMe = function (_me) { me = _me; };
     this.onStart = function(pathInfo, cb){
-        Sources.getInstance().getArticles(parseInt(pathInfo.sourceId), function(articles){
+         Sources.getInstance().getArticles(parseInt(pathInfo.sourceId), function(articles){
             me.articles = articles;
             cb();
-            
-        });
+         });
     };
 
     this.afterRender = function(){
@@ -20,10 +19,10 @@ com.reader.article.ArticleListController = function ( me, Articles, Settings, So
     }
 
     this.onChange = function(pathInfo, cb){
-        Sources.getInstance().getArticles(parseInt(pathInfo.sourceId), function(articles){
+         Sources.getInstance().getArticles(parseInt(pathInfo.sourceId), function(articles){
             me.articles = articles;
             cb();
-        });
+         });
     };
 
     var windowResize;

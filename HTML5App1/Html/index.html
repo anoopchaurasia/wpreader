@@ -48,6 +48,7 @@
 	      <div fm-name='articleContainer' id="articleContainer">
 	      </div>
 	      <br style="clear:both" />
+        <div id="taskmanager" ></div>
       </div>
     </script>
     <script id="/html/article.html" type="text/template">
@@ -63,7 +64,7 @@
     </script>
     <script id="/html/articles.html" type="text/template">
       <div id="article-list" style="height: 90%; width: 98%;">
-        <div style="width: 100%;">
+         <div style="width: 100%;">
             <h2 fm-bind="articles.title"></h2>
             <div style="overflow:auto" fm-name="articleMove">
                 <div fm-repeat="item in articles.items">
@@ -85,6 +86,7 @@
             <div class="clearboth" ></div>
         </div>
         <br class="clearboth" />
+        
     </div>
     </script>
     <script id="/html/settings.html" type="text/template">
@@ -188,14 +190,14 @@
       <div class="right-panel" id="dynamic">
       </div>
     </script>
-    <scipt id="/html/taskmanager.html" type="text/template">
+    <script id="/html/taskmanager.html" type="text/template">
       <div id="taskbar">
-        <img class="setting" fm-click="open()" src="/img/settings.jpg">
+        <img class="setting" fm-click="open()" src="/img/settings.jpg" />
           <span fm-hide="!totalCol" style="margin-left:45%">
             <span fm-bind="colNumber"></span>/<span fm-bind="totalCol"></span>
           </span>
         </div>
-    </scipt>
+    </script>
   </head>
   <body>
     <div id="main" style="height:100%">

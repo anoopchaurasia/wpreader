@@ -23,33 +23,26 @@ namespace HTML5App1
         }
 
         private Stack<Uri> _history = new Stack<Uri>();
-        private Uri _current = null;
 
         protected override void OnBackKeyPress(CancelEventArgs e)
         {
             base.OnBackKeyPress(e);
-
-
-
-            // Cancel the back button press
             e.Cancel = true;
-
-            // Navigate to the last page
+            if (Browser.Source.ToString().EndsWith("#/source"))
+            {
+                e.Cancel = false;
+            }
             Browser.GoBack();
+            //SystemTray.ProgressIndicator.IsIndeterminate = true;
+           // SystemTray.ProgressIndicator.IsVisible = true;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-        }
         private void Browser_Loaded(object sender, RoutedEventArgs e)
         {
             Browser.IsScriptEnabled = true;
-
-            // Add your URL here
+            SystemTray.ProgressIndicator = new ProgressIndicator();
             Browser.Navigate(new Uri(MainUri, UriKind.Relative));
         }
-
 
         // Handle navigation failures.
         private void Browser_NavigationFailed(object sender, System.Windows.Navigation.NavigationFailedEventArgs e)

@@ -211,7 +211,6 @@
     <Content Include="jfm\util\Utility.js" />
     <Content Include="js\jquery-swipe.js" />
     <Content Include="js\jquery.js" />
-    <Content Include="js\jquery.xml2json.js" />
     <Content Include="js\jsfm.js" />
     <Content Include="js\src\com\reader\abstract\ItemList.js" />
     <Content Include="js\src\com\reader\article\Article.js" />

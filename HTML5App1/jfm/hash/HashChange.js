@@ -2,9 +2,10 @@ fm.Package("jfm.hash");
 fm.AbstractClass("HashChange");
 jfm.hash.HashChange = function (me){this.setMe=function(_me){me=_me;};
 
-
+	var oldHash;
 	function onHashChange(){
 		var hash = location.hash.substring(1);
+		if(hash.replace(/\?(.*)$/g, "") === oldHash) return;
 		var found = false;
 		var hashArr = hash.split("/"), s, keyValue = {};
 		for(var k=0; k < me.route.length; k++){
@@ -31,6 +32,7 @@ jfm.hash.HashChange = function (me){this.setMe=function(_me){me=_me;};
 		if(!found && me.defaultRoute){
 			location.hash = me.defaultRoute;
 		}
+		oldHash = hash;
 	}
 
 	this.activateCurrent = function () {
