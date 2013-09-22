@@ -27,6 +27,7 @@ com.reader.article.ArticleController = function (me, Articles, Sources, FillCont
         fontChange && fontChange();
         renderComplete(0, 0);
         clearTimeout(setTimeOut);
+		$("#settingPopup").remove();
     };
 
     this.ArticleController = function (lastState) {
@@ -67,14 +68,14 @@ com.reader.article.ArticleController = function (me, Articles, Sources, FillCont
         recursive();
     }
 
-
+	var swipeKeys = {swiperight: 37, swipeleft: 39, swipeup: 39, swipedown: 37};
     function move(elem) {
         var current; elem = $(elem);
-        $(document).off('keydown swiperight swipeleft').on('keydown swiperight swipeleft', function (e, data) {
+        $(document).off('keydown swiperight swipeleft swipeup swipedown').on('keydown swiperight swipeleft swipeup swipedown', function (e, data) {
             var elemets = elem.find(".selector");
             current = current && current.filter(":visible").length && current || elemets.eq(0);
             var changed = false;
-            var keyCode = e.type === 'swipeleft'? 39 : e.type === 'swiperight' ? 37 : e.keyCode; 
+            var keyCode = swipeKeys[e.type] || e.keyCode; 
             switch (keyCode) {
                 case 37: {
                     if (current.prev().length) {

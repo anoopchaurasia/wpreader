@@ -57,18 +57,13 @@ body {
 .s {
 	overflow: hidden;
 	line-height: 1.2em;
-	margin: 5px;
-	height: 200px;
-	padding: 0 10px;
-	width: 290px;
-	lineHeight: 1.2em;
-}
+  	padding: 0 15px;
+ }
 
 .parent {
 	padding: 4px;
 	border: 1px dotted transparent;
-	margin-bottom: 5px;
-	float: left;
+ 	float: left;
 }
 
 .text-inside-image {
@@ -85,31 +80,27 @@ body {
 
 
 #taskbar {
-	bottom: 30px;
- 	left: 0;
-	height: 30px;
-	position: absolute;
-	width: 100%;
+ 	height: 30px;
+ 	width: 100%;
 	z-index: 2;
+	position:absolute;
 }
 
 #article-container .title {
 	white-space: nowrap;
-}
-
-#article-container .title {
 	margin: 3px;
 }
 
 .newsSnippet {
 	border: 1px solid #CCCCCC;
 	float: left;
-	width:100%;
+	width:94%;
 	margin-bottom: 5px;
 	margin-left: 5px;
 	overflow: hidden;
 	padding: 5px;
 }
+ 
 
 .newsSnippet p,.newsSnippet h2 {
 	margin: 0;
@@ -161,21 +152,18 @@ body {
 	padding: 9px;
 }
 
-.vertical-news-container {
-	float: left;
-}
-
 .right-float {
 	float: right;
 }
 
 .setting-popup{
 	position: absolute;
-	top: 100px;
+	bottom: 5%;
 	background-color: #5F5454;
 	color: #fff;
-	width: 350px;
-	margin-left: -175px;
+	width: 260px;
+	max-width:260px;
+	margin-left: -155px;
 	padding: 20px;
 	z-index: 2;
 	left: 50%;
