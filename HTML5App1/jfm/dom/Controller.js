@@ -31,11 +31,12 @@ jfm.dom.Controller = function(base, me, DomManager, ListView){
                 me.setTemplate($(elem).text(), url);
                 fn( $(controllerContentMap[url]).clone(true) );
             }
-            else{			 
+            else{
                 jQuery.get(url, function(html){
                     me.setTemplate(html, url);
                     fn( $(controllerContentMap[url]).clone(true) );
                 });
+				
             }
         }
     };
@@ -169,6 +170,29 @@ jfm.dom.Controller = function(base, me, DomManager, ListView){
                 return false;
             }
         },
+        fmValue : function(value){
+            var exp = parser(value);
+            return function(node, scope){
+                switch(node.type.toUpperCase()){
+                    case "RADIO":
+                    {
+                        node.checked = node.value ==  exp(scope);
+                        break;
+                    }
+                    case "CHECKBOX":{
+                        node.checked = exp(scope) == true;
+                        break;
+                    }
+                    default:{
+                        node.value = exp(scope);
+                    }
+                }
+                $(node).click(function(){
+                    setValue (scope, value, this.value , this.checked)
+                    scope.domchange && scope.domchange();
+                });
+            }
+        },
         fmDirective: function(value){
             value = parser(value.replace("(", "(element"));
             return function(node, scope){
@@ -176,6 +200,14 @@ jfm.dom.Controller = function(base, me, DomManager, ListView){
                 value(scope);
             }
         }
+    }
+
+    function setValue (scope, keys, value, other){
+        var keyList =  keys.split(".");
+        for(var i=0; i< keyList.length - 1; i++){
+            scope = scope[keyList[i]];
+        }
+        scope[keyList[i]] = other !== undefined ? other : value;
     }
 
     function applyNode(name, value, node){

@@ -47,7 +47,6 @@
       <div style="overflow:hidden;">
 	      <div fm-name='articleContainer' id="articleContainer">
 	      </div>
-         <div id="taskmanager" ></div>
       </div>
     </script>
     <script id="/html/article.html" type="text/template">
@@ -60,6 +59,7 @@
     <script id="/html/article.view.html" type="text/template">
       <div style="width:100%" id="articleContContainer">
       </div>
+      <div id="taskmanager" >dsrf</div>
     </script>
     <script id="/html/articles.html" type="text/template">
       <div id="article-list" style="height: 90%; width: 100%;">
@@ -141,7 +141,7 @@
         <div>
             <img style="max-width:100%" src="/img/home.png" />
         </div>
-        <button fm-click="addAFeedSource()">+add</button>
+        <a href="#/editfeed">+add</a>
         <div fm-repeat="item in sources.items">
             <div class="items">
                 <a fm-href="#/source/{{item.id}}">
@@ -192,10 +192,29 @@
     <script id="/html/taskmanager.html" type="text/template">
       <div id="taskbar">
         <img class="setting" fm-click="open()" src="/img/settings.jpg" />
-          <span fm-hide="!totalCol" style="margin-left:42%; font-size:.8em;">
-            <span fm-bind="colNumber"></span>/<span fm-bind="totalCol"></span>
+          <span style="margin-left:42%; font-size:.8em;">
+            <span fm-name="colNumber"></span>/<span fm-name="totalCol"></span>
           </span>
         </div>
+    </script>
+    <script id="/html/addfeeds.html" type="text/template">
+      <div>
+        <form>
+          <ul>
+            <li fm-repeat="feed in FeedList">
+              <label>
+                <input type="checkbox" fm-value="feed.inlist" />
+                <img width="20" fm-src='{{feed.thumbnail}}' />
+                <span fm-bind="feed.name"></span>
+              </label>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </script>
+    <script id="/html/editfeed.view.html" type="text/template">
+      <div id="editfeed">
+      </div>
     </script>
   </head>
   <body>

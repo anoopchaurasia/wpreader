@@ -217,9 +217,8 @@
     <Content Include="js\src\com\reader\article\ArticleController.js" />
     <Content Include="js\src\com\reader\article\ArticleListController.js" />
     <Content Include="js\src\com\reader\article\Articles.js" />
-    <Content Include="js\src\com\reader\controller\ActionController.js" />
+    <Content Include="js\src\com\reader\controller\EditNewsFeed.js" />
     <Content Include="js\src\com\reader\controller\AddFeedSourceController.js" />
-    <Content Include="js\src\com\reader\controller\MainController.js" />
     <Content Include="js\src\com\reader\hash\RegisterHash.js" />
     <Content Include="js\src\com\reader\Reader.js" />
     <Content Include="js\src\com\reader\setting\Settings.js" />
@@ -228,9 +227,9 @@
     <Content Include="js\src\com\reader\source\SourceController.js" />
     <Content Include="js\src\com\reader\source\Sources.js" />
     <Content Include="js\src\com\reader\view\Article.js" />
+    <Content Include="js\src\com\reader\view\EditFeed.js" />
     <Content Include="js\src\com\reader\view\NewsList.js" />
     <Content Include="js\src\com\reader\view\Home.js" />
-    <Content Include="js\src\com\reader\view\View.js" />
     <Content Include="js\src\lib\ChangeListener.js" />
     <Content Include="js\src\lib\FillContent.js" />
     <Content Include="js\src\lib\MSGesture.js" />

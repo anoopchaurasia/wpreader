@@ -29,6 +29,7 @@ com.reader.article.ArticleListController = function ( me, Articles, Settings, So
 
     this.onStop = function(){
         windowResize();
+		me.articleMove.parent().scrollTop(0);
     };
     
     this.showArticle = function (articleId) {

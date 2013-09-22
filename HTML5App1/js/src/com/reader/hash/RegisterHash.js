@@ -2,9 +2,10 @@ fm.Package("com.reader.hash");
 fm.Import("com.reader.setting.SettingsController");
 fm.Import("com.reader.view.Home");
 fm.Import("com.reader.view.NewsList");
+fm.Import("com.reader.view.EditFeed");
 fm.Import("com.reader.view.Article");
 fm.Class("RegisterHash","jfm.hash.HashChange");
-com.reader.hash.RegisterHash = function(base, me, Article, Home, NewsList){this.setMe=function(_me){me=_me};
+com.reader.hash.RegisterHash = function(base, me, Article, Home, EditFeed, NewsList){this.setMe=function(_me){me=_me};
     'use strict';
     var lastState = {}; 
     this.RegisterHash = function () {
@@ -13,6 +14,10 @@ com.reader.hash.RegisterHash = function(base, me, Article, Home, NewsList){this.
            {
                 path: "/source",
                 view: Home
+           },
+           {
+                path: "/editfeed",
+                view: EditFeed
            },
 		   {
 				path:"/source/:sourceId",

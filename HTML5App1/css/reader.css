@@ -76,14 +76,12 @@ body {
 	margin: 5px 6px;
 }
 
-
-
-
 #taskbar {
  	height: 30px;
  	width: 100%;
 	z-index: 2;
-	position:absolute;
+	visibility: hidden;
+	position: absolute;
 }
 
 #article-container .title {
@@ -134,11 +132,7 @@ body {
 }
 
 .selected {
-	border: 1px dotted #CCCCCC;
-}
-
-.column-selected {
-	border-color: #CCCCCC;
+	
 }
 
 .image-container {
