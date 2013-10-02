@@ -1,9 +1,8 @@
 fm.Package("com.reader.setting");
 fm.Class("Settings", "jfm.dom.ChangeListener");
-com.reader.setting.Settings = function(base, me){
+com.reader.setting.Settings = function (base, me, ChangeListener){this.setMe=function(_me){me=_me;};
 	'use strict';
-	this.setMe = function (_me) { me = _me };
-	
+
 	this.Settings = function(){
 
 		var settings = JSON.parse(localStorage.settings||"{}");
@@ -16,13 +15,13 @@ com.reader.setting.Settings = function(base, me){
 			t = setTimeout(function() {
 				var temp=$(window).width();
 				me.window_width = temp;
-				me.sourceListwidth =  temp * 15/100 < 150 ? 40 : 160; 
+				me.sourceListwidth =  temp * 15/100 < 150 ? 40 : 160;
 				me.callAll('window-resize', temp , oldSize);
 				oldSize = temp;
 			}, 50);
 		}).width();
 		this.window_width = oldSize;
-		this.sourceListwidth =  oldSize * 15/100 < 150 ? 40 : 160; 
+		this.sourceListwidth =  oldSize * 15/100 < 150 ? 40 : 160;
 	};
 
 

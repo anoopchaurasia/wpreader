@@ -3,7 +3,7 @@ fm.Import("com.reader.source.Sources");
 fm.Import("com.reader.setting.Settings");
 fm.Import("lib.FillContent")
 fm.Class("ArticleController", 'jfm.dom.Controller');
-com.reader.article.ArticleController = function (me, Articles, Sources, FillContent, Settings) {
+com.reader.article.ArticleController = function (base, me, Sources, Settings, FillContent, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
     var fontChange;
@@ -15,6 +15,7 @@ com.reader.article.ArticleController = function (me, Articles, Sources, FillCont
             fontChange = Settings.getInstance().on('fontSize,color_class,window-resize', function () {
                 create(me.article.content);
             });
+			
         });
     };
 
@@ -31,7 +32,7 @@ com.reader.article.ArticleController = function (me, Articles, Sources, FillCont
     };
 
     this.ArticleController = function (lastState) {
-
+		$(window).scrollTop(0);
     };
     function getWidth(fs) {
         var w = jQuery(window).width(), cw = fs * multi;

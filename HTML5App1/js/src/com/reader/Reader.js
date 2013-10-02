@@ -1,12 +1,13 @@
 fm.Package("com.reader");
+fm.Import("com.reader.setting.Settings");
 fm.Import("com.reader.hash.RegisterHash");
-fm.Import("jfm.html.LoopScope");
 fm.Include("lib.parser");
 fm.Class("Reader");
-com.reader.Reader = function (me, RegisterHash) {
+com.reader.Reader = function (me, Settings, RegisterHash){this.setMe=function(_me){me=_me;};
     'use strict';
     this.setMe = function (_me) { me = _me };
     Static.main = function () {
 		new RegisterHash();
+		$('body').css(Settings.getInstance().color_class);
 	};
 };

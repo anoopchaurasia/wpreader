@@ -1,13 +1,14 @@
-﻿fm.Package("com.reader.source");
+fm.Package("com.reader.source");
 fm.Import("com.reader.source.Sources");
  fm.Import("com.reader.setting.Settings");
 fm.Class("SourceController", 'jfm.dom.Controller');
-com.reader.source.SourceController = function (base, me, Sources, Settings) {
+com.reader.source.SourceController = function (base, me, Sources, Settings, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
     var windowResize, dontRender;
     this.SourceController = function (lastState) {
     	base();
+		$(window).scrollTop(0);
         me.settings = Settings.getInstance();
         me.sources = Sources.getInstance();
        // setValues();
@@ -27,6 +28,8 @@ com.reader.source.SourceController = function (base, me, Sources, Settings) {
 
     this.onStart = function(keyValue, cb){
         cb(dontRender);
+		var oldScrollY =0;
+		me.sourceListCont.height(window.innerHeight - 70);
     };
     this.onStop = function(cb){
         windowResize();

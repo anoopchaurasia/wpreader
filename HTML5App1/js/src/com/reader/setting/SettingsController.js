@@ -1,13 +1,12 @@
 fm.Package("com.reader.setting");
 fm.Import("com.reader.setting.Settings");
 fm.Class("SettingsController", 'jfm.dom.Controller');
-com.reader.setting.SettingsController = function (base, me, Settings, SettingsController) {
+com.reader.setting.SettingsController = function (base, me, Settings, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
 
 	this.SettingsController = function(settings){
 		this.settings = Settings.getInstance();
-		$('body').css(this.settings.color_class);
 		$(document).on('page_info', function(e, data){
 			$("#taskbar").css("visibility", "visible");
 			me.colNumber.html(data.colNumber);

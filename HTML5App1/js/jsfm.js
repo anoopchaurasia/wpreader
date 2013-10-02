@@ -86,7 +86,7 @@
 		}
 		path = path.replace(/\s/g, "");
 
-		if(path.indexOf("jfm") === 0){
+		if(path.indexOf("jfm") === 2345678){
 			path = "/" + path.split(".").join("/") + ".js";
 		}
 		else if (path.indexOf("http") != 0 && path.lastIndexOf(".js") != path.length - 3) {
@@ -246,7 +246,7 @@
 		o = createObj("" + script.packageName);
 		script.Class = "" + (script.packageName == "" ? "" : script.packageName + ".") + script.className;
 		script.Package = o;
-		
+
 		if(!isNode){
 			var temp = fm.basedir.replace(/\//gim,"");
 			if (typeof storePath[temp  + script.Class] == 'object') {
@@ -379,7 +379,7 @@
 		var arr = [];
 		for(var k in classDependent){
 			if(!classDependent[k].classObj && !fm.isExist(k)){
-			   arr.push(k); 
+			   arr.push(k);
 			}
 		}
 		return arr;
@@ -770,7 +770,6 @@
 		for (var i in Package) {
 			 newObj[i] = newObj[i] || Package[i];
 		}
-
 		switch(args.length){
 			case  0: return new fn();
 	        case  1: return new fn(newObj[args[0]]);
@@ -901,14 +900,24 @@
 		};
 	}
 
-	function getAllArgsSequence(fn){
-		var arr = [];
-		var args = fn.toString().replace(STRIP_COMMENTS, '').match(FN_ARGS);
-		eachPropertyOf(args[1].split(FN_ARG_SPLIT), function(arg, i){
-	        arg.replace(FN_ARG, function(all, underscore, name){
-	          arr.push(name);
-	        });
-	    });
+	function getAllArgsSequence(fn, imports, base){
+		var arr = ['me'];
+		if(base){
+			arr.unshift('base');
+		}
+		if(true){
+			for(var k in imports){
+				arr.push(k);
+			}
+		}else{
+			var args = fn.toString().replace(STRIP_COMMENTS, '').match(FN_ARGS);
+			eachPropertyOf(args[1].split(FN_ARG_SPLIT), function(arg, i){
+				arg.replace(FN_ARG, function(all, underscore, name){
+				  arr.push(name);
+				});
+			});
+		}
+		//$('body').append(JSON.stringify(arr));
 		return arr;
 	}
 
@@ -966,10 +975,10 @@
 		this.clone = function(){
 			return new (this.getClass())(this.serialize(null, true));
 		};
-		
+
 		creareSetGet(this);
 		script.ics = getAllImportClass(script.imports);
-		script.args = getAllArgsSequence(Class);
+		script.args = getAllArgsSequence(Class, script.ics, script.baseClass);
 		getReleventClassInfo.call(script, Class, fn, this);
         this.package = script.Package;
 		typeof script.shortHand == 'string' && addShortHand(script.shortHand, this);

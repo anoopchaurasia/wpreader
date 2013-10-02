@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace HTML5App1
 {
@@ -21,6 +22,7 @@ namespace HTML5App1
         {
             InitializeComponent();
         }
+
 
         private Stack<Uri> _history = new Stack<Uri>();
 
@@ -37,10 +39,29 @@ namespace HTML5App1
            // SystemTray.ProgressIndicator.IsVisible = true;
         }
 
+        private void BrowserNavigated(object sender, RoutedEventArgs e)
+        { 
+        
+        }
+
+        private void Border_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
+        {
+            if (e.FinalVelocities.ExpansionVelocity.X != 0.0 ||
+                e.FinalVelocities.ExpansionVelocity.Y != 0.0 )
+                e.Handled = true;
+            
+        }
+
+        private void Border_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+        {
+            if (e.DeltaManipulation.Translation.X != 0.0 ||
+                e.DeltaManipulation.Translation.Y != 0.0)
+                e.Handled = true;
+        }
+
         private void Browser_Loaded(object sender, RoutedEventArgs e)
         {
             Browser.IsScriptEnabled = true;
-            SystemTray.ProgressIndicator = new ProgressIndicator();
             Browser.Navigate(new Uri(MainUri, UriKind.Relative));
         }
 

@@ -1,4 +1,4 @@
-﻿fm.Package("com.reader.source");
+fm.Package("com.reader.source");
 fm.Import("com.reader.article.Articles");
 fm.Class("Source");
 com.reader.source.Source = function (me, Articles) {
@@ -16,7 +16,7 @@ com.reader.source.Source = function (me, Articles) {
             cb(me.articles);
         }else{
             loadData(me.url, function(data){
-                me.articles = new Articles( data.feed );
+                me.articles = new Articles( data.feed, me );
                 cb(me.articles);
             });
         }
@@ -30,8 +30,8 @@ com.reader.source.Source = function (me, Articles) {
             if (result.status === 200 || result.responseStatus === 200) {
                 cb( (result.response? JSON.parse(result.response) : result).responseData);
             }
-        }, function(e){
-            console.log(e);
+         }, function(e){
+             console.log(e.status);
         });
     }
 }

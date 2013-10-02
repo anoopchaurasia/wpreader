@@ -6,6 +6,7 @@ com.reader.controller.AddFeedSourceController = function (base, me, DomManager) 
     this.setMe = function (_me) { me = _me; };
 
     this.AddFeedSourceController = function () {
+		$(window).scrollTop(0);
     	 this.getTemplate("/html/addfeedsource.html", function(template){
             var dom = new DomManager(template, me);
 			me.el = dom.el;

@@ -118,8 +118,7 @@ lib.FillContent = function (me) {
 				decrease = step;
 			}
 		}
-		dom.html( dom.html().replace(/<\/a>/mgi, "</a> "));
-		return [ from + lastCharOffset[0], totalLen - from - lastCharOffset[0] ];
+ 		return [ from + lastCharOffset[0], totalLen - from - lastCharOffset[0] ];
 	};
 	this.FillContent = function( ) {
 
