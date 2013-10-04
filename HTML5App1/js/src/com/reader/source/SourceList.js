@@ -55,14 +55,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/1006.png",
     "full": true
 }, {
-    "website": "http://bits.blogs.nytimes.com/",
-    "url": "http://bits.blogs.nytimes.com/feed/",
-    "type": "Tech",
-    "id": 1007,
-    "name": "NYT Bits",
-    "thumbnail": "/img/favicon/1007.png",
-    "full": false
-}, {
     "website": "http://www.digitaltrends.com",
     "url": "http://www.digitaltrends.com/feed/?key=f00edf6a58d2a8740e624dda919cab37",
     "type": "Tech",
@@ -119,14 +111,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/10014.png",
     "full": true
 }, {
-    "website": "http://www.cnn.com/index.html?eref=rss_topstories",
-    "url": "http://rss.cnn.com/rss/cnn_topstories.rss",
-    "type": "News",
-    "id": 10015,
-    "name": "CNN",
-    "thumbnail": "/img/favicon/10015.png",
-    "full": false
-}, {
     "website": "http://abcnews.go.com/",
     "url": "http://feeds.abcnews.com/abcnews/topstories",
     "type": "News",
@@ -134,14 +118,6 @@ var sourceList = [{
     "name": "ABC News",
     "thumbnail": "/img/favicon/10016.png",
     "full": true
-}, {
-    "website": "http://www.huffingtonpost.com/thenewswire/",
-    "url": "http://feeds.huffingtonpost.com/huffingtonpost/LatestNews",
-    "type": "News",
-    "id": 10017,
-    "name": "The Huffington Post",
-    "thumbnail": "/img/favicon/10017.png",
-    "full": false
 }, {
     "website": "http://www.reuters.com",
     "url": "http://feeds.reuters.com/reuters/topNews?irpc=69",
@@ -159,22 +135,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/10019.png",
     "full": true
 }, {
-    "website": "http://www.npr.org/templates/story/story.php?storyId=1001&ft=1&f=1001",
-    "url": "http://www.npr.org/rss/rss.php?id=1001",
-    "type": "News",
-    "id": 10020,
-    "name": "NPR News",
-    "thumbnail": "/img/favicon/10020.png",
-    "full": false
-}, {
-    "website": "http://www.bbc.co.uk/news/#sa-ns_mchannel=rss&ns_source=PublicRSS20-sa",
-    "url": "http://newsrss.bbc.co.uk/rss/newsonline_world_edition/front_page/rss.xml",
-    "type": "News",
-    "id": 10021,
-    "name": "BBC",
-    "thumbnail": "/img/favicon/10021.png",
-    "full": false
-}, {
     "website": "http://www.usatoday.com",
     "url": "http://rssfeeds.usatoday.com/usatoday-NewsTopStories",
     "type": "News",
@@ -182,14 +142,6 @@ var sourceList = [{
     "name": "USA Today",
     "thumbnail": "/img/favicon/10022.png",
     "full": true
-}, {
-    "website": "http://www.lemonde.fr",
-    "url": "http://www.lemonde.fr/rss/sequence/0,2-3208,1-0,0.xml",
-    "type": "News",
-    "id": 10023,
-    "name": "Le Monde",
-    "thumbnail": "/img/favicon/10023.png",
-    "full": false
 }, {
     "website": "http://www.theguardian.com/world/usa",
     "url": "http://www.guardian.co.uk/world/usa/rss",
@@ -206,30 +158,6 @@ var sourceList = [{
     "name": "FOX News",
     "thumbnail": "/img/favicon/10025.png",
     "full": true
-}, {
-    "website": "http://www.rue89.com",
-    "url": "http://www.rue89.com/homepage/feed",
-    "type": "News",
-    "id": 10026,
-    "name": "Rue89",
-    "thumbnail": "/img/favicon/10026.png",
-    "full": false
-}, {
-    "website": "http://elpais.com/rss/elpais/portada.xml",
-    "url": "http://www.elpais.com/rss/feed.html?feedId=1022",
-    "type": "News",
-    "id": 10027,
-    "name": "El Pais",
-    "thumbnail": "/img/favicon/10027.png",
-    "full": false
-}, {
-    "website": "http://www.zeit.de/index",
-    "url": "http://newsfeed.zeit.de/index",
-    "type": "News",
-    "id": 10028,
-    "name": "Zeit online",
-    "thumbnail": "/img/favicon/10028.png",
-    "full": false
 }, {
     "website": "http://www.theguardian.com/uk",
     "url": "http://www.guardian.co.uk/rssfeed/0,,1,00.xml",
@@ -343,14 +271,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/10043.png",
     "full": true
 }, {
-    "website": "http://www.polygon.com/",
-    "url": "http://www.polygon.com/rss/index.xml",
-    "type": "gaming",
-    "id": 10044,
-    "name": "Polygon",
-    "thumbnail": "/img/favicon/10044.png",
-    "full": false
-}, {
     "website": "http://pipes.yahoo.com/pipes/pipe.info?_id=3c853897b3e044f5abd763d061015c37",
     "url": "http://feeds.ign.com/ign/games-all",
     "type": "gaming",
@@ -366,14 +286,6 @@ var sourceList = [{
     "name": "FleshEatingZipper",
     "thumbnail": "/img/favicon/10046.png",
     "full": true
-}, {
-    "website": "http://www.wired.com/gamelife",
-    "url": "http://www.wired.com/gamelife/feed/",
-    "type": "gaming",
-    "id": 10047,
-    "name": "Game Life",
-    "thumbnail": "/img/favicon/10047.png",
-    "full": false
 }, {
     "website": "http://indiegames.com/",
     "url": "http://www.indiegames.com/blog/atom.xml",
@@ -511,14 +423,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/10064.png",
     "full": true
 }, {
-    "website": "http://www.dezeen.com",
-    "url": "http://feeds.feedburner.com/dezeen",
-    "type": "Design",
-    "id": 10065,
-    "name": "Dezeen",
-    "thumbnail": "/img/favicon/10065.png",
-    "full": false
-}, {
     "website": "http://freshome.com",
     "url": "http://feeds.feedburner.com/FreshInspirationForYourHome",
     "type": "Design",
@@ -574,14 +478,6 @@ var sourceList = [{
     "name": "Abduzeedo",
     "thumbnail": "/img/favicon/10072.png",
     "full": true
-}, {
-    "website": "http://www.notcot.com/",
-    "url": "http://www.notcot.com/atom.xml",
-    "type": "Design",
-    "id": 10073,
-    "name": "NOTCOT",
-    "thumbnail": "/img/favicon/10073.png",
-    "full": false
 }, {
     "website": "http://www.core77.com/blog/",
     "url": "http://feeds2.feedburner.com/core77/blog",
@@ -775,22 +671,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/10098.png",
     "full": true
 }, {
-    "website": "http://fashionista.com",
-    "url": "http://feeds.feedburner.com/fashionistacom",
-    "type": "fashion",
-    "id": 10099,
-    "name": "Fashionista",
-    "thumbnail": "/img/favicon/10099.png",
-    "full": false
-}, {
-    "website": "http://www.vogue.co.uk",
-    "url": "http://feeds.feedburner.com/vogue-blogs-the-vogue-blog",
-    "type": "fashion",
-    "id": 100100,
-    "name": "The Vogue Blog",
-    "thumbnail": "/img/favicon/100100.png",
-    "full": false
-}, {
     "website": "http://www.dailycandy.com/everywhere/",
     "url": "http://feeds.dailycandy.com/dailycandyew",
     "type": "fashion",
@@ -879,14 +759,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/100111.png",
     "full": true
 }, {
-    "website": "http://www.simplyrecipes.com",
-    "url": "http://feeds.feedburner.com/elise/simplyrecipes",
-    "type": "Cooking",
-    "id": 100112,
-    "name": "Simply Recipes",
-    "thumbnail": "/img/favicon/100112.png",
-    "full": false
-}, {
     "website": "http://blog.foodnetwork.com/fn-dish",
     "url": "http://blog.foodnetwork.com/fn-dish/feed/",
     "type": "Cooking",
@@ -951,14 +823,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/100120.png",
     "full": true
 }, {
-    "website": "http://www.davidlebovitz.com",
-    "url": "http://www.davidlebovitz.com/archives/index.rdf",
-    "type": "Cooking",
-    "id": 100121,
-    "name": "David Lebovitz",
-    "thumbnail": "/img/favicon/100121.png",
-    "full": false
-}, {
     "website": "http://bakingbites.com",
     "url": "http://bakingbites.com/feed/",
     "type": "Cooking",
@@ -1015,110 +879,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/100128.png",
     "full": true
 }, {
-    "website": "http://makezine.com",
-    "url": "http://blog.makezine.com/index.xml",
-    "type": "do it yourself",
-    "id": 100129,
-    "name": "Make",
-    "thumbnail": "/img/favicon/100129.png",
-    "full": true
-}, {
-    "website": "http://makezine.com",
-    "url": "http://blog.craftzine.com/index.xml",
-    "type": "do it yourself",
-    "id": 100130,
-    "name": "Craft",
-    "thumbnail": "/img/favicon/100130.png",
-    "full": true
-}, {
-    "website": "http://www.ikeahackers.net",
-    "url": "http://ikeahacker.blogspot.com/feeds/posts/default",
-    "type": "do it yourself",
-    "id": 100131,
-    "name": "IKEA Hackers",
-    "thumbnail": "/img/favicon/100131.png",
-    "full": true
-}, {
-    "website": "http://hackaday.com",
-    "url": "http://www.hackaday.com/rss.xml",
-    "type": "do it yourself",
-    "id": 100132,
-    "name": "Hack a Day",
-    "thumbnail": "/img/favicon/100132.png",
-    "full": true
-}, {
-    "website": "http://www.instructables.com",
-    "url": "http://www.instructables.com/tag/type:instructable/rss.xml",
-    "type": "do it yourself",
-    "id": 100133,
-    "name": "Instructables",
-    "thumbnail": "/img/favicon/100133.png",
-    "full": false
-}, {
-    "website": "http://www.adafruit.com/blog",
-    "url": "http://www.adafruit.com/blog/feed/",
-    "type": "do it yourself",
-    "id": 100134,
-    "name": "adafruit industries blog",
-    "thumbnail": "/img/favicon/100134.png",
-    "full": true
-}, {
-    "website": "http://www.brit.co",
-    "url": "http://www.hellobrit.com/global/rss-feed/",
-    "type": "do it yourself",
-    "id": 100135,
-    "name": "Brit",
-    "thumbnail": "/img/favicon/100135.png",
-    "full": false
-}, {
-    "website": "http://www.doityourself.com",
-    "url": "http://doityourself.com/rss",
-    "type": "do it yourself",
-    "id": 100136,
-    "name": "DoItYourself.com | Latest Articles",
-    "thumbnail": "/img/favicon/100136.png",
-    "full": true
-}, {
-    "website": "http://gofugyourself.com",
-    "url": "http://gofugyourself.celebuzz.com/atom.xml",
-    "type": "do it yourself",
-    "id": 100137,
-    "name": "Go Fug Yourself",
-    "thumbnail": "/img/favicon/100137.png",
-    "full": true
-}, {
-    "website": "http://www.wikihow.com/Main-Page",
-    "url": "http://www.wikihow.com/feed.rss",
-    "type": "do it yourself",
-    "id": 100138,
-    "name": "How to of the Day",
-    "thumbnail": "/img/favicon/100138.png",
-    "full": true
-}, {
-    "website": "http://apairandasparediy.com",
-    "url": "http://apair-andaspare.blogspot.com/feeds/posts/default",
-    "type": "do it yourself",
-    "id": 100140,
-    "name": "a pair & a spare",
-    "thumbnail": "/img/favicon/100140.png",
-    "full": true
-}, {
-    "website": "http://www.diylife.com",
-    "url": "http://www.diylife.com/rss.xml",
-    "type": "do it yourself",
-    "id": 100141,
-    "name": "DIY Life",
-    "thumbnail": "/img/favicon/100141.png",
-    "full": true
-}, {
-    "website": "http://espn.go.com/",
-    "url": "http://sports.espn.go.com/espn/rss/news",
-    "type": "Sport",
-    "id": 100142,
-    "name": "ESPN.com",
-    "thumbnail": "/img/favicon/100142.png",
-    "full": false
-}, {
     "website": "http://deadspin.com",
     "url": "http://feeds.gawker.com/deadspin/vip",
     "type": "Sport",
@@ -1134,22 +894,6 @@ var sourceList = [{
     "name": "Bleacher Report",
     "thumbnail": "/img/favicon/100144.png",
     "full": true
-}, {
-    "website": "http://sportsillustrated.cnn.com/?xid=si_topstories",
-    "url": "http://rss.cnn.com/rss/si_topstories.rss",
-    "type": "Sport",
-    "id": 100145,
-    "name": "Sports Illustrated",
-    "thumbnail": "/img/favicon/100145.png",
-    "full": false
-}, {
-    "website": "http://news.yahoo.com/sports/",
-    "url": "http://rss.news.yahoo.com/rss/sports",
-    "type": "Sport",
-    "id": 100146,
-    "name": "Yahoo! Sports",
-    "thumbnail": "/img/favicon/100146.png",
-    "full": false
 }, {
     "website": "http://www.grantland.com",
     "url": "http://feeds.feedburner.com/Grantland",
@@ -1199,14 +943,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/100152.png",
     "full": true
 }, {
-    "website": "http://frozenroyalty.net",
-    "url": "http://frozenroyalty.net/feed/",
-    "type": "Sport",
-    "id": 100153,
-    "name": "Frozen Royalty",
-    "thumbnail": "/img/favicon/100153.png",
-    "full": false
-}, {
     "website": "http://feeds.ibt.com/feeds/r35f8.rss",
     "url": "http://feeds.ibt.com/feeds/r35f8.rss",
     "type": "Sport",
@@ -1247,14 +983,6 @@ var sourceList = [{
     "thumbnail": "/img/favicon/100158.png",
     "full": true
 }, {
-    "website": "http://www.indiewire.com/category/news",
-    "url": "http://www.indiewire.com/index.xml",
-    "type": "cinema",
-    "id": 100159,
-    "name": "IndieWire",
-    "thumbnail": "/img/favicon/100159.png",
-    "full": false
-}, {
     "website": "http://mubi.com/notebook/posts",
     "url": "http://mubi.com/notebook/posts.atom",
     "type": "cinema",
@@ -1286,14 +1014,6 @@ var sourceList = [{
     "name": "Observations on film art",
     "thumbnail": "/img/favicon/100163.png",
     "full": true
-}, {
-    "website": "http://entertainmentweekly.tumblr.com/",
-    "url": "http://entertainmentweekly.tumblr.com/rss",
-    "type": "cinema",
-    "id": 100164,
-    "name": "Entertainment Weekly",
-    "thumbnail": "/img/favicon/100164.png",
-    "full": false
 }, {
     "website": "http://www.filmschoolrejects.com",
     "url": "http://feeds.feedburner.com/FilmSchoolRejects",

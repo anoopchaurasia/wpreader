@@ -29,7 +29,7 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
     this.onStart = function(keyValue, cb){
         cb(dontRender);
 		var oldScrollY =0;
-		me.sourceListCont.height(window.innerHeight - 70);
+		me.sourceListCont.height(window.innerHeight - me.sourceListCont.position().top-2);
     };
     this.onStop = function(cb){
         windowResize();

@@ -19,6 +19,7 @@
                             HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch"
                            Loaded="Browser_Loaded"
+                           ScriptNotify="notifyHandler"
                            ManipulationCompleted="Border_ManipulationCompleted"
                            ManipulationDelta="Border_ManipulationDelta"
                            NavigationFailed="Browser_NavigationFailed" />

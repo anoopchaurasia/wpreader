@@ -6,6 +6,7 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
 	var storageList;
     this.EditNewsFeed = function () {
         storageList = [];
+		window.external.notify("loading");
 		try{
 			 storageList = JSON.parse(localStorage.selecteFeedSource) || [];
 		}catch(e){
@@ -37,9 +38,11 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
     };
 
     this.onStart = function(keys, cb){
-        cb();
-		me.feedlistContainer.height(window.innerHeight-30);
+		cb();
+		me.feedlistContainer.height(window.innerHeight- me.feedlistContainer.position().top - 5);
+		window.external.notify("loading complete");		
     }
     this.onStop = function(keys, cb){
+		window.external.notify("loading complete");
     }
 };

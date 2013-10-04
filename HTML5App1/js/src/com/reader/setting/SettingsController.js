@@ -8,7 +8,6 @@ com.reader.setting.SettingsController = function (base, me, Settings, Controller
 	this.SettingsController = function(settings){
 		this.settings = Settings.getInstance();
 		$(document).on('page_info', function(e, data){
-			$("#taskbar").css("visibility", "visible");
 			me.colNumber.html(data.colNumber);
 			me.totalCol.html(data.totalCol);
 		});
@@ -16,9 +15,15 @@ com.reader.setting.SettingsController = function (base, me, Settings, Controller
 
 	this.onStart = function(keyvalue, cb){
 		cb();
+		$('body').css(this.settings.color_class);
+		$("#taskbar").css("visibility", "visible");
 	};
 
-	this.onStop = function(){};
+	this.onStop = function(){
+		var copy = JSON.parse(JSON.stringify(this.settings.color_class));
+		for(var k in copy)copy[k]="";
+		$('body').css(copy);
+	};
 
 	this.open = function(){
 		this.createDom('/html/settings.html',function(dom){

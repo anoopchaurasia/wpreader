@@ -7,10 +7,12 @@ com.reader.article.ArticleListController = function (base, me, Articles, Sources
     'use strict';
     this.setMe = function (_me) { me = _me; };
     this.onStart = function(pathinfo, cb){
+		window.external.notify("loading");
         pathid = parseInt(pathinfo.sourceId);
         Sources.getInstance().getArticles(pathid, function(articles){
             me.articles = articles;
             cb();
+			window.external.notify("loading complete");
         });
     };
 
@@ -39,6 +41,7 @@ com.reader.article.ArticleListController = function (base, me, Articles, Sources
     this.onStop = function(){
         windowResize();
         me.articleMove && me.articleMove.parent().scrollTop(0);
+		window.external.notify("loading complete");
     };
     
     this.showArticle = function (articleId) {

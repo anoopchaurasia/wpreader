@@ -8,6 +8,10 @@ com.reader.Reader = function (me, Settings, RegisterHash){this.setMe=function(_m
     this.setMe = function (_me) { me = _me };
     Static.main = function () {
 		new RegisterHash();
-		$('body').css(Settings.getInstance().color_class);
+		window.filecontent = function(content){
+			alert(content);
+		};
+		window.external.notify("css/phone.css");
 	};
+
 };

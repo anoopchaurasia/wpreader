@@ -9,6 +9,11 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.ComponentModel;
 using System.Windows.Input;
+using System.IO.IsolatedStorage;
+using System.IO;
+using Windows.Storage;
+using System.Threading.Tasks;
+using Windows.Storage.Streams;
 
 namespace HTML5App1
 {
@@ -23,6 +28,7 @@ namespace HTML5App1
             InitializeComponent();
         }
 
+        ProgressIndicator progBar = new ProgressIndicator();
 
         private Stack<Uri> _history = new Stack<Uri>();
 
@@ -35,13 +41,62 @@ namespace HTML5App1
                 e.Cancel = false;
             }
             Browser.GoBack();
-            //SystemTray.ProgressIndicator.IsIndeterminate = true;
-           // SystemTray.ProgressIndicator.IsVisible = true;
         }
 
         private void BrowserNavigated(object sender, RoutedEventArgs e)
         { 
         
+        }
+
+        private void notifyHandler(object sender, NotifyEventArgs e)
+        {
+            if (e.Value.Equals("loading"))
+            {
+                progBar.IsIndeterminate = true;
+                progBar.IsVisible = true;
+            }
+            else if (e.Value.IndexOf("loading") != -1)
+            {
+                progBar.IsVisible = false;
+            }
+            else
+            {
+
+                Browser.InvokeScript("filecontent", readResourceAsText(e.Value));
+            }
+        }
+
+
+        /// <summary>
+        /// Reads application resource as a text
+        /// </summary>
+        /// <param name="options">Path to a resource</param>
+        public string readResourceAsText(string pathToResource)
+        {
+
+            try
+            {
+                if (pathToResource.StartsWith("/"))
+                {
+                    pathToResource = pathToResource.Remove(0, 1);
+                }
+
+                var resource = Application.GetResourceStream(new Uri(pathToResource, UriKind.Relative));
+
+                if (resource == null)
+                {
+                    return "";
+                }
+
+                string text;
+                StreamReader streamReader = new StreamReader(resource.Stream);
+                text = streamReader.ReadToEnd();
+                return text;
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
         }
 
         private void Border_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
@@ -62,6 +117,7 @@ namespace HTML5App1
         private void Browser_Loaded(object sender, RoutedEventArgs e)
         {
             Browser.IsScriptEnabled = true;
+            SystemTray.SetProgressIndicator(this, progBar);
             Browser.Navigate(new Uri(MainUri, UriKind.Relative));
         }
 
@@ -70,5 +126,7 @@ namespace HTML5App1
         {
             MessageBox.Show("Navigation to this page failed, check your internet connection");
         }
+
+        public string[] content { get; set; }
     }
 }
