@@ -26,7 +26,7 @@ jfm.dom.Controller = function (base, me, DomManager, ListView, ChangeListener){
         if(controllerContentMap[url]){
             fn( $(controllerContentMap[url]).clone(true) );
         }else{
-            if(ReadFile){
+            if(ReadFile.isPhone){
 				ReadFile.get(url, function(html){
 					me.setTemplate(html, url);
 					fn( $(controllerContentMap[url]).clone(true) );
@@ -115,7 +115,7 @@ jfm.dom.Controller = function (base, me, DomManager, ListView, ChangeListener){
             return function(node, scope){
                 scope.on('change', function(txt){
                     var n = value(scope);
-                    n !== old && ( (old = n ) ? $(node).css('display','none') : $(node).css('display','') );
+                    n !== old && ( !(old = n ) ? $(node).css('display','none') : $(node).css('display','') );
                 })
                 var old = value(scope);
                 old ? $(node).css('display',''): $(node).css('display','none');
@@ -163,19 +163,25 @@ jfm.dom.Controller = function (base, me, DomManager, ListView, ChangeListener){
 			};
 		},
         fmRepeat: function(value, node){
-            var exp = value.match(/^\s*(.+)\s+in\s+(.*)\s*$/);
+			value = value.split("|");
+            var exp = value[0].match(/^\s*(.+)\s+in\s+(.*)\s*$/);
             var v = parser(exp[2]);
-            var actionObj = $(node).hide().data('actionObj');
-            return function(node, scope){ var a = value;
-                var newScope, clone;
+            var actionObj = $(node).data('actionObj');
+            return function(node, scope){
                 var temp = v(scope);
+				var fileterKey = value[1] && value[1].match(/(.*?):(.*?)$/);
+				fileterKey && (actionObj.show = legalAttr.fmShow(fileterKey[2]));
                 var list = temp.instancOf && temp.instancOf(ListView) ? temp : new ListView( temp );
-                var savefmRepeat = actionObj.fmRepeat;
-                delete actionObj.fmRepeat;
-                list.createView(node, scope, exp[1], function(){
-					actionObj.fmRepeat = savefmRepeat;
-					$(node).remove();
-				});
+                scope["$"+exp[2]] = list;
+				var newKeys = $.extend({}, actionObj);
+				delete newKeys.fmRepeat;
+				var newnode = $(node).clone(true).hide();
+				$(node).after(newnode).remove();
+				newnode.data('actionObj', newKeys);
+				setTimeout(function(){
+					list.createView(newnode, scope, exp[1]);
+				}, 30);
+                
                 return false;
             }
         },

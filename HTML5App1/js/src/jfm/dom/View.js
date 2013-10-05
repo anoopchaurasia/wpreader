@@ -15,7 +15,7 @@ jfm.dom.View = function (me){this.setMe=function(_me){me=_me;};
 
     this.getTemplate = function(cb){
         var url = this.getSub().url;
-        if(ReadFile){
+        if(ReadFile.isPhone){
 			ReadFile.get(url, function(html){
 				cb(html);
 			});

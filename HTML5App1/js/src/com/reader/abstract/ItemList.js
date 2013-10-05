@@ -17,4 +17,8 @@ com.reader.abstract.ItemList = function (me){this.setMe=function(_me){me=_me;};
             }
         }
     }
+
+	this.add = function(item){
+		this.items.push(item);
+	};
 }

@@ -50,16 +50,25 @@ jfm.hash.HashChange = function (me){this.setMe=function(_me){me=_me;};
     
     var oldKeyValue;
     this.onUrlChange = function(url, keyValue){
-        if(currentView && url.view.toString() === currentView.toString() ){
-            currentView.onChange(keyValue, oldKeyValue);
-            oldKeyValue = keyValue;
-            return;
-        }else if(currentView){
-            currentView.onStop();
-        }
-        var view = new url.view(keyValue);
-        view.onStart(keyValue);
-        currentView = view;
+		if(typeof url.view === 'string'){
+			fm.Include(url.view);
+			setTimeout(function(){
+				url.view = fm.isExist(url.view);
+				me.onUrlChange(url, keyValue);
+			}, 400);
+		}
+		else{
+			if(currentView && url.view.toString() === currentView.toString() ){
+				currentView.onChange(keyValue, oldKeyValue);
+				oldKeyValue = keyValue;
+				return;
+			}else if(currentView){
+				currentView.onStop();
+			}
+			var view = new url.view(keyValue);
+			view.onStart(keyValue);
+			currentView = view;
+		}
     };
 
 	this.HashChange = function(  ) {

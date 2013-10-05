@@ -10,10 +10,17 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
     	base();
 		$(window).scrollTop(0);
         me.settings = Settings.getInstance();
-        me.sources = Sources.getInstance();
-       // setValues();
+		me.sources = Sources.getInstance();
+		me.sources.items = [];
+        FeedList.getInstance().getSelected(function(list){
+			if(!list.length)me.addInfo.show();
+			if(me["$sources.items"]){
+				me["$sources.items"].add(Sources.convert(list));
+			}else{
+				me.sources.items = Sources.convert(list);
+			}
+		});
         windowResize = me.settings.on('window-resize', function(){
-           // setValues();
             me.callAll("change");
         });
     };
@@ -39,3 +46,9 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
         cb(this.sources);
     };
 };
+/*
+setTimeout(function(){
+
+alert(fm.getMissingClass());
+}, 1000);
+*/

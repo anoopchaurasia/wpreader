@@ -889,7 +889,6 @@
 		if (!this.__base___) {
 			delete currentObj.$add;
 		}
-
 		return currentObj;
 	}
 

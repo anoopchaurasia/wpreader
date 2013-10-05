@@ -13,6 +13,7 @@ lib.ReadFile = function (me) {
 
 	Static.main = function(){
 		cbs = {};
+		me.isPhone=location.href.indexOf('http') == -1;
 		window.filecontent = function(content){
 			var arr = content.split("@|$");
 			if(cbs[arr[0]]){

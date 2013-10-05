@@ -1,50 +1,65 @@
 fm.Package("com.reader.controller");
-fm.Import("com.reader.controller.AddFeedSourceController");
 fm.Class("EditNewsFeed", 'jfm.dom.Controller');
-com.reader.controller.EditNewsFeed = function (base, me, AddFeedSourceController, Controller) {
+com.reader.controller.EditNewsFeed = function (base, me, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
-	var storageList;
     this.EditNewsFeed = function () {
-        storageList = [];
 		window.external.notify("loading");
-		try{
-			 storageList = JSON.parse(localStorage.selecteFeedSource) || [];
-		}catch(e){
-			storageList =[];
-		};
-        var arr =  com.reader.source.Sources.getData();
-		var types = {};
-		for(var k=0, len=arr.length;k<len; k++){
-			types[arr[k].type] = types[arr[k].type] || [];
-			types[arr[k].type].push(arr[k]);
-		}
-		this.FeedList = types;
+		this.FeedList = {};
+		FeedList.getInstance().getAll(function(arr){
+			var types = {};
+			for(var k=0, len=arr.length;k<len; k++){
+				types[arr[k].type] = types[arr[k].type] || [];
+				types[arr[k].type].push(arr[k]);
+			}
+			if(me.$FeedList){
+				me.$FeedList.add(types);
+			}else{
+				me.FeedList = types;
+			}
+		});		
     };
 
+	this.isEmpty = function(items){
+		for(var k=0; k< items.length; k++){
+			if(this.filter(items[k])) return false;
+		}
+		return true;
+	};
+
+	this.remove = function (feeds, type){
+		for(var k=0; k < feeds.length; k++){
+			FeedList.getInstance().remove(feeds[k].id);
+		}
+		me.$FeedList.remove(feeds, type);
+	}
+
+	this.filter = function(item){
+		return  item.name.toLowerCase().indexOf(me.query.val()) !== -1;
+	}
+
 	this.isInList = function(feed){
-		return storageList.indexOf(feed.id) !== -1 ;
+		return feed.inlist == 'true';
 	};
 
 	this.addFeed = function(){
-		new AddFeedSourceController();
+		location.hash = "#/addfeedsource";
 	};
 
     this.domchange = function(data, value){
-		
-		if(data[value]){
-			storageList.push(data.id);
-		}else{
-			var index = storageList.indexOf(data.id);
-			storageList.splice(index, 1);
-		}
-        localStorage.selecteFeedSource = JSON.stringify(storageList);
-		com.reader.source.Sources.getInstance().resetItems();
+		data.inlist = "" +data.inlist;
+		FeedList.getInstance().add(data, function(){
+		});
     };
 
 	this.afterRender = function(){
 		me.feedlistContainer.height(window.innerHeight- me.feedlistContainer.position().top - 5);
-		window.external.notify("loading complete");		
+		window.external.notify("loading complete");	
+		me.query.keyup(function(){
+			setTimeout(function(){
+				me.callAll('change');
+			}, 100);
+		});	
 	};
 
     this.onStart = function(keys, cb){
