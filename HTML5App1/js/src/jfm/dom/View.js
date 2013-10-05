@@ -15,13 +15,11 @@ jfm.dom.View = function (me){this.setMe=function(_me){me=_me;};
 
     this.getTemplate = function(cb){
         var url = this.getSub().url;
-        var elem = document.getElementById(url);
-        if(elem){
-			setTimeout(function(){
-			    cb($(elem).text());
-			}, 1);
-            
-         }
+        if(ReadFile){
+			ReadFile.get(url, function(html){
+				cb(html);
+			});
+        }
         else{
             jQuery.get(url,  cb);
         }

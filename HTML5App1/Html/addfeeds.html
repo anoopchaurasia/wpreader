@@ -1,0 +1,22 @@
+<div>
+  <div class="header-class">
+    <h1>Select from List</h1>
+    <span fm-click="addFeed()">add</span>
+  </div>
+  <form>
+    <div style="overflow-y:auto;width:100%;overflow-x:hidden" fm-name="feedlistContainer">
+      <ul  fm-repeat="feeds in FeedList" >
+        <li class="type-head">
+          <span  fm-bind="index"></span>
+        </li>
+        <li class="feedlistitem source-item-list" fm-repeat="feed in feeds">
+          <label class="no-text-wrap full-width-height">
+            <input type="checkbox" fm-checked="isInList(feed)" fm-value="feed.inlist" />
+            <img width="20" fm-src='{{feed.thumbnail}}' />
+            <span fm-bind="feed.name"></span>
+          </label>
+        </li>
+      </ul>
+    </div>
+  </form>
+</div>

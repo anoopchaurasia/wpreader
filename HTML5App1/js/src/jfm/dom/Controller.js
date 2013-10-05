@@ -26,10 +26,11 @@ jfm.dom.Controller = function (base, me, DomManager, ListView, ChangeListener){
         if(controllerContentMap[url]){
             fn( $(controllerContentMap[url]).clone(true) );
         }else{
-            var elem = document.getElementById(url);
-            if(elem){
-                me.setTemplate($(elem).text(), url);
-                fn( $(controllerContentMap[url]).clone(true) );
+            if(ReadFile){
+				ReadFile.get(url, function(html){
+					me.setTemplate(html, url);
+					fn( $(controllerContentMap[url]).clone(true) );
+				});
             }
             else{
                 jQuery.get(url, function(html){

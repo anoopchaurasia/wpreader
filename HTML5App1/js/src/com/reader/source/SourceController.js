@@ -21,6 +21,11 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
     function setValues(){
         me.hideText = window.innerWidth * 15/100 < 150;
     }
+	
+	this.afterRender = function(){
+        var oldScrollY =0;
+		me.sourceListCont.height(window.innerHeight - me.sourceListCont.position().top-2);
+    };
 
     this.reRender = function(){
         return false;
@@ -28,8 +33,6 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
 
     this.onStart = function(keyValue, cb){
         cb(dontRender);
-		var oldScrollY =0;
-		me.sourceListCont.height(window.innerHeight - me.sourceListCont.position().top-2);
     };
     this.onStop = function(cb){
         windowResize();

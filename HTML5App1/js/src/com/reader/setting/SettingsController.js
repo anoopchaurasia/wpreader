@@ -13,10 +13,13 @@ com.reader.setting.SettingsController = function (base, me, Settings, Controller
 		});
 	};
 
-	this.onStart = function(keyvalue, cb){
-		cb();
+	this.afterRender = function(){
 		$('body').css(this.settings.color_class);
 		$("#taskbar").css("visibility", "visible");
+	};
+
+	this.onStart = function(keyvalue, cb){
+		cb();
 	};
 
 	this.onStop = function(){

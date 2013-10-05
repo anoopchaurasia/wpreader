@@ -142,11 +142,21 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="cr.png" />
     <Content Include="cr1.png" />
     <Content Include="css\phone.css" />
     <Content Include="css\reader.css" />
     <Resource Include="img\ajax-loader.gif" />
+    <Content Include="Html\addfeeds.html" />
+    <Content Include="Html\article.html" />
+    <Content Include="Html\article.view.html" />
+    <Content Include="Html\articles.html" />
+    <Content Include="Html\addfeedsource.html" />
+    <Content Include="Html\editfeed.view.html" />
+    <Content Include="Html\home.view.html" />
+    <Content Include="Html\newslist.view.html" />
+    <Content Include="Html\settings.html" />
+    <Content Include="Html\sources.html" />
+    <Content Include="Html\taskmanager.html" />
     <Content Include="img\favicon\1000.png" />
     <Content Include="img\favicon\1001.png" />
     <Content Include="img\favicon\10010.png" />
@@ -370,6 +380,7 @@
     <Content Include="js\src\jfm\util\Store.js" />
     <Content Include="js\src\jfm\util\Utility.js" />
     <Content Include="js\src\lib\ChangeListener.js" />
+    <Content Include="js\src\lib\ReadFile.js" />
     <Content Include="js\src\lib\FillContent.js" />
     <Content Include="js\src\lib\MSGesture.js" />
     <Content Include="js\src\lib\parser.js" />

@@ -1,6 +1,7 @@
 fm.Package("com.reader.controller");
+fm.Import("com.reader.controller.AddFeedSourceController");
 fm.Class("EditNewsFeed", 'jfm.dom.Controller');
-com.reader.controller.EditNewsFeed = function (base, me, Controller) {
+com.reader.controller.EditNewsFeed = function (base, me, AddFeedSourceController, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
 	var storageList;
@@ -25,6 +26,10 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
 		return storageList.indexOf(feed.id) !== -1 ;
 	};
 
+	this.addFeed = function(){
+		new AddFeedSourceController();
+	};
+
     this.domchange = function(data, value){
 		
 		if(data[value]){
@@ -37,10 +42,13 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
 		com.reader.source.Sources.getInstance().resetItems();
     };
 
-    this.onStart = function(keys, cb){
-		cb();
+	this.afterRender = function(){
 		me.feedlistContainer.height(window.innerHeight- me.feedlistContainer.position().top - 5);
 		window.external.notify("loading complete");		
+	};
+
+    this.onStart = function(keys, cb){
+		cb();
     }
     this.onStop = function(keys, cb){
 		window.external.notify("loading complete");

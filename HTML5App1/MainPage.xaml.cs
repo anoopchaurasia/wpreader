@@ -14,6 +14,7 @@ using System.IO;
 using Windows.Storage;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
+using System.Threading;
 
 namespace HTML5App1
 {
@@ -61,8 +62,7 @@ namespace HTML5App1
             }
             else
             {
-
-                Browser.InvokeScript("filecontent", readResourceAsText(e.Value));
+                 Browser.InvokeScript("filecontent", e.Value + "@|$" + readResourceAsText(e.Value));
             }
         }
 
