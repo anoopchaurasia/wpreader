@@ -21,7 +21,7 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
     };
 
 	this.isEmpty = function(items){
-		for(var k=0; k< items.length; k++){
+		for(var k=0; items && k< items.length; k++){
 			if(this.filter(items[k])) return false;
 		}
 		return true;

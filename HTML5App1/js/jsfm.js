@@ -53,11 +53,12 @@
 		}
 	};
 
+	var communicationObj = {};
 	// /fm.import adds new javascript file to head of document. JAVA: import
 	fm['import'] = fm.Import = function Import( path ) {
 		path = path.replace(/\s/g, "");
 		add(path);
-		this.Include(path); // function
+		this.Include(path, communicationObj); // function
 		return this;
 	};
 
@@ -66,12 +67,14 @@
 
 	// /same as fm.import but for non jfm files.
 	fm['include'] = fm.Include = function Include( ) {
+		var isFromImport = arguments[1] === communicationObj;
 		var args = [];
 		for (var k =1; k < arguments.length; k++){
 			args.push(arguments[k]);
 		}
 		var path = arguments[0];
 		var temp = fm.basedir.replace(/\//gim,"");
+		!isFromImport && addIncluded(path);
 		if (!storePath[temp+ path]) {
 			storePath[temp + path] = args || true;
 		}
@@ -85,7 +88,7 @@
 			return this;
 		}
 		path = path.replace(/\s/g, "");
-
+		var orignalpath = path;
 		if(path.indexOf("jfm") === 2345678){
 			path = "/" + path.split(".").join("/") + ".js";
 		}
@@ -95,7 +98,7 @@
 				path += "min.js";
 			}
 		}
-		include(path);
+		include(path, orignalpath, isFromImport);
 		return this;
 	};
 
@@ -121,10 +124,28 @@
 		script.imports.push(path);
 		return true;
 	}
+
+	// Add imports for current loaded javascript file.
+	// Add imported javascript file for current class into scriptArr.
+	function addIncluded( path ) {
+		var script = scriptArr[scriptArr.length - 1];
+		script && (!script.included && (script.included = []));
+		if(!script)return;
+		// checking if same file imported twice for same Class.
+		for ( var k = 0, len = script.included.length; k < len; k++) {
+			if (script.included[k] == path) {
+				return this;
+			}
+		}
+		script.included.push(path);
+		return true;
+	}
+
+
 	var docHead;
 
 	// Create script tag inside head.
-	function include( path ) {
+	function include( path, orignalpath, isFromImport ) {
 
 		if(isNode){
 			require(path);
@@ -158,10 +179,17 @@
 		if(fm.version){
 			path += "?v=" + fm.version;
 		}
+		e.orignalpath = orignalpath;
+		!isFromImport && (e.onload = onScriptload);
 		e.onerror = onReadyState;
 		e.src = path;
 		e.type = "text/javascript";
 		docHead.appendChild(e);
+	}
+
+	function onScriptload(){
+		iamready( this.orignalpath, null);
+		$(document).trigger('include_file_loaded', [this.orignalpath]);
 	}
 
 	function listenFileChange (path) {
@@ -559,7 +587,7 @@
 	}
 
 	// Wait for resource to be ready
-	function addImportsOnready( implist, cb, fn ) {
+	function addImportsOnready( implist, included, cb, fn ) {
 		var counter = 0, complete;
 		function decreaseCounter( ) {
 			counter--;
@@ -575,6 +603,18 @@
 			}
 			else {
 				onFileReady(implist[k], function( obj, id ) {
+					decreaseCounter();
+				});
+			}
+		}
+		for ( var k = 0; included && k < included.length; k++) {
+			counter++;
+			var Class = isReady(included[k]);
+			if (Class && 'classObj' in Class) {
+				decreaseCounter();
+			}
+			else {
+				onFileReady(included[k], function( obj, id ) {
 					decreaseCounter();
 				});
 			}
@@ -1098,7 +1138,7 @@
 			return currentObj;
 		};
 		// Add resource ready queue.
-		addImportsOnready(script.imports, function( ) {
+		addImportsOnready(script.imports, script.included, function( ) {
 			executeOnready.call(po[fn], script, fn, Class, data);
 			data = undefined;
 		}, fn);

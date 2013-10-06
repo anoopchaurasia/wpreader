@@ -16,6 +16,12 @@ jfm.dom.ListView = function (me, DomManager){this.setMe=function(_me){me=_me;};
     	newScopeC = function(){};
     };
     this.add = function(item){
+		if(!copyNode){
+			setTimeout(function(){
+				me.add(item);
+			}, 30);
+			return;
+		}
     	if(jQuery.isArray(item)){
     		for(var i=0, len = item.length; i< len; i++){
     			this.add(item[i]);

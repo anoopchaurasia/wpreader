@@ -9,6 +9,10 @@ com.reader.Reader = function (me, FeedList,  Settings, RegisterHash){this.setMe=
     'use strict';
     this.setMe = function (_me) { me = _me };
     Static.main = function () {
+
+		if(location.href.indexOf('http') !== -1){
+			window.external = {notify:function(){}};
+		} 
 		new RegisterHash();
 	};
 };

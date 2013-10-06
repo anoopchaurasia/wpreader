@@ -13,6 +13,7 @@ com.reader.controller.AddFeedSourceController = function (base, me) {
 	};
 
 	this.afterRender = function(){
+		me.listcontainer.height(window.innerHeight- me.listcontainer.position().top - 5);
 		me.submit.click(formSubmit);
 	}
 
@@ -39,7 +40,7 @@ com.reader.controller.AddFeedSourceController = function (base, me) {
 		e.preventDefault();
 		window.external.notify('loading');
 		me.name.blur();
-		jQuery.get("http://cloud.feedly.com/v3/search/feeds?q="+me.name.val()+"&n=5", addResult).fail(function(resp){
+		jQuery.get("http://cloud.feedly.com/v3/search/feeds?q="+me.name.val()+"&n=15", addResult).fail(function(resp){
 			window.external.notify('loading complete');
 			alert("fail");
  		});

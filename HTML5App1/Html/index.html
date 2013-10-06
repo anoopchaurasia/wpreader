@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <style type="text/css">
       body, html {
         overflow: hidden;
@@ -24,12 +24,12 @@
     <script type="text/javascript" src="/js/jsfm.js"></script>
     <script>
       fm.basedir = '/js/src';
-      $(document).on('click', 'a', function(){
-      if( this.href.indexOf('http') != -1 ){
-      return false;
-      }
+      $(document).on('click', 'a', function(){ ;
+        if( this.getAttribute('href').indexOf('http') != -1 ){
+          return false;
+        }
       });
-       
+
     </script>
     <style type="text/css">
       .items{
@@ -67,8 +67,8 @@
        <div id="view">
       </div>
      <script type="text/javascript">
-      jQuery.support.cors = true;
-      fm.Include("com.reader.Reader");
-    </script>
+      // jQuery.support.cors = true;
+       fm.Include("com.reader.Reader");
+     </script>
   </body>
 </html>

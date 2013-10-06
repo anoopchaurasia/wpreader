@@ -67,6 +67,7 @@ com.reader.article.ArticleListController = function (base, me, Articles, Sources
 
 
     function move(elem){
+	    return
         var current;elem = $(elem);
         $(document).off('swipeleft swiperight').on('swipeleft swiperight', function(e){
             var elemets = elem.find(".newsSnippet");
@@ -80,7 +81,6 @@ com.reader.article.ArticleListController = function (base, me, Articles, Sources
                 }
                 case 'swiperight':{
                      var id = Sources.getInstance().prev(parseInt(pathid));
-                    
                     location.hash = location.hash.replace(/(\d*?)$/m, id);;
                     break;
                 }

@@ -34,8 +34,7 @@ com.reader.store.FeedList = function (me){this.setMe=function(_me){me=_me;};
         ];
         myStore = new IDBStore(this);
 	};
-	var cb;
-
+	var paendingCB;
 	this.getAll = function(cb){
 		myStore.getAll(cb);
 	};
@@ -46,9 +45,11 @@ com.reader.store.FeedList = function (me){this.setMe=function(_me){me=_me;};
 
 	this.getSelected = function(cb, ecb){
 		if(!myStore.db){
-			cb = function(){me.getSelected(cb, ecb)};
+		console.log("345");
+			paendingCB = function(){me.getSelected(cb, ecb)};
 			return;
 		}
+		console.log("caleed");
 		 myStore.query(cb, {
             index: "inlist",
             keyRange: myStore.makeKeyRange({
@@ -64,17 +65,20 @@ com.reader.store.FeedList = function (me){this.setMe=function(_me){me=_me;};
     };
 
 	this.onStoreReady = function () {
-        myStore.getAll(function(a){
-			if(a.length === 0){
+        myStore.get(1000, function(a){
+			if(!a){
 				fm.Include("com.reader.source.SourceList");
-				me.add(sourceList, function(){
-					cb && cb();
+				$(document).on('include_file_loaded', function(e, data){
+					if("com.reader.source.SourceList" === data){
+						me.add(sourceList, function(){
+							paendingCB && paendingCB();
+						});
+					}
 				});
+				
 			}else{
-				cb && cb();
+				paendingCB && paendingCB();
 			}
-
-			
 		});
     };
 
@@ -109,3 +113,4 @@ com.reader.store.FeedList = function (me){this.setMe=function(_me){me=_me;};
 		return instance;
 	};
 };
+
