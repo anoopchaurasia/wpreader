@@ -48,5 +48,5 @@ com.reader.source.Sources = function (base, me, Source, ItemList) {
 };
 
 window.onerror = function(e){
-	alert(e + "");
+	//alert(e + "");
 }

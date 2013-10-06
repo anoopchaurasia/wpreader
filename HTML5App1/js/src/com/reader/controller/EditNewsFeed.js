@@ -4,14 +4,15 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
     this.EditNewsFeed = function () {
-		window.external.notify("loading");
+		ReadFile.notify("loading");
 		this.FeedList = {};
 		FeedList.getInstance().getAll(function(arr){
-			var types = {};
+			var types = {Added:[]};
 			for(var k=0, len=arr.length;k<len; k++){
 				types[arr[k].type] = types[arr[k].type] || [];
 				types[arr[k].type].push(arr[k]);
 			}
+			if(types.Added.length ===0) delete types.Added;
 			if(me.$FeedList){
 				me.$FeedList.add(types);
 			}else{
@@ -25,6 +26,10 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
 			if(this.filter(items[k])) return false;
 		}
 		return true;
+	};
+
+	this.addNew = function(){
+		location.href = "#/addfeedsource?string="+ me.query.val();
 	};
 
 	this.remove = function (feeds, type){
@@ -55,7 +60,7 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
 	this.afterRender = function(){
 		me.feedlistContainer.height(window.innerHeight- me.feedlistContainer.position().top - 5);
 		
-		window.external.notify("loading complete");	
+		ReadFile.notify("loading complete");	
 		me.query.keyup(function(){
 			setTimeout(function(){
 				me.callAll('change');
@@ -67,6 +72,6 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
 		cb();
     }
     this.onStop = function(keys, cb){
-		window.external.notify("loading complete");
+		ReadFile.notify("loading complete");
     }
 };

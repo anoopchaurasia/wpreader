@@ -7,19 +7,13 @@ lib.ReadFile = function (me) {
 	Static.get = function(url, cb){
 		cbs[url] = cb;
 		setTimeout(function(){
-			window.external.notify(url);
+			ReadFile.notify(url);
 		},10);
 	};
 
-	Static.notify1 = function(a){
-	setTimeout(function(){
-		alert(external);
-	},10);
-	
-	return;
-		if(window.external && window.external.notify){
-			window.external.notify(a);
-		}
+	Static.notify = function(a){
+		if(!me.isPhone) return;
+		NOTIFY(a);
 	};
 
 

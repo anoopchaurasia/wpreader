@@ -5,8 +5,9 @@
               <span class="add-plus">+</span><span class="add-text">add</span></a>
   </div>
   <form>
-    <div style="overflow-y:auto;width:100%;overflow-x:hidden" fm-name="feedlistContainer">
-      <input placeholder="Search " class="query-input"  fm-name="query" />
+    <div style="overflow-y:auto;width:100%;overflow-x:hidden; position:relative;" fm-name="feedlistContainer">
+      <input placeholder="Filter " class="query-input"  fm-name="query" />
+      <input type="button" class="searchlist btn-sm btn" value="New" fm-click="addNew()"/>
       <ul fm-hide="isEmpty(feeds)"  fm-repeat="feeds in FeedList" >
         <li class="type-head">
           <span  fm-bind="index"></span>

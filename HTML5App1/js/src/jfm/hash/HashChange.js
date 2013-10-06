@@ -4,7 +4,10 @@ jfm.hash.HashChange = function (me){this.setMe=function(_me){me=_me;};
 	var oldHash;
 	function onHashChange(){
 		var hash = location.hash.substring(1);
-		if(hash.replace(/\?(.*)$/g, "") === oldHash) return;
+		var query = hash.split("?");
+		hash = query[0];
+		query = query[1];
+		if(hash === oldHash) return;
 		var found = false;
 		var hashArr = hash.split("/"), s, keyValue = {};
 		for(var k=0; k < me.route.length; k++){
@@ -51,13 +54,13 @@ jfm.hash.HashChange = function (me){this.setMe=function(_me){me=_me;};
     this.onUrlChange = function(url, keyValue){
 		if(typeof url.view === 'string'){
 			fm.Include(url.view);
-			//$(document).on('include_file_loaded', function(e, data){
-				//if(data === url.view){
+			//$(document).off('include_file_loaded').on('include_file_loaded', function(e, data){
+			//	if(data === url.view){
 					setTimeout(function(){
 						url.view = fm.isExist(url.view);
 						me.onUrlChange(url, keyValue);
-					}, 1000);
-			///	}
+					}, 10);
+				//}
 			//});
 		}
 		else{
