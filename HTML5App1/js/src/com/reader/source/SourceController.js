@@ -14,11 +14,11 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
 		me.sources.items = [];
         FeedList.getInstance().getSelected(function(list){
 			if(me["$sources.items"]){
-				list.length && me.addInfo.hide();
 				me["$sources.items"].add(Sources.convert(list));
 			}else{
 				me.sources.items = Sources.convert(list);
 			}
+			if(list.length ==0 && me.addInfo)me.addInfo.show();
 		});
         windowResize = me.settings.on('window-resize', function(){
             me.callAll("change");
@@ -31,7 +31,6 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
 	
 	this.afterRender = function(){
         var oldScrollY =0;
-		if(me.sources.items.length === 0)me.addInfo.show();
 		me.sourceListCont.height(window.innerHeight - me.sourceListCont.position().top-2);
     };
 
@@ -47,9 +46,4 @@ com.reader.source.SourceController = function (base, me, Sources, Settings, Cont
         cb(this.sources);
     };
 };
-/*
-setTimeout(function(){
-
-alert(fm.getMissingClass());
-}, 1000);
-*/
+ 

@@ -23,11 +23,11 @@
     <script type="text/javascript" src="/js/jquery-swipe.js"></script>
     <script type="text/javascript" src="/js/jsfm.js"></script>
     <script>
-      fm.basedir = '/js/src';
-      $(document).on('click', 'a', function(){ ;
-        if( this.getAttribute('href').indexOf('http') != -1 ){
-          return false;
-        }
+
+      $(document).on('click', 'a', function(){ 
+      if( this.getAttribute('href') && this.getAttribute('href').indexOf('http') != -1 ){
+        return false;
+      }
       });
 
     </script>
@@ -67,8 +67,11 @@
        <div id="view">
       </div>
      <script type="text/javascript">
-      // jQuery.support.cors = true;
+       fm.basedir = '/js/src';
+       jQuery.support.cors = true;
+       //fm.isMinified=true;
        fm.Include("com.reader.Reader");
+       
      </script>
   </body>
 </html>

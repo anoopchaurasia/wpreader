@@ -1,6 +1,3 @@
-fm.Package("com.reader.source");
-fm.Class("SourceList123");
-com.reader.source.SourceList123 = function(){};
 var sourceList = [{
     "website": "http://lifehacker.com",
     "url": "http://feeds.gawker.com/lifehacker/vip",

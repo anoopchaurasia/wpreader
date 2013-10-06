@@ -95,7 +95,7 @@
 		else if (path.indexOf("http") != 0 && path.lastIndexOf(".js") != path.length - 3) {
 			path = fm.basedir + "/" + path.split(".").join("/") + ".js";
 			if(fm.isMinified){
-				path += "min.js";
+				path =path.replace(".js", "") + "-min.js";
 			}
 		}
 		include(path, orignalpath, isFromImport);

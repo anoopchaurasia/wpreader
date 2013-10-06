@@ -225,7 +225,9 @@ body {
 	color: #5F4B32;
 	background-color: #FBF0D9;
 }
-
+#articleContainer *{
+	max-width: 100%;
+}
 a{
 	color: inherit;
 }

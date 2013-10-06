@@ -9,7 +9,7 @@
       <div class="source-item-list" fm-repeat="item in results">
         <div class="items no-text-wrap">
           <a fm-click="save(item)">
-            <img style="max-width:30px; min-width:20px;" fm-src='{{"http://www.google.com/s2/favicons?domain=" + encodeURIComponent(item.website)}}' />
+            <img style="max-width:30px; min-width:20px;" fm-src="http://www.google.com/s2/favicons?domain={{item.website}}"/>
             <span fm-bind="item.title"></span>
           </a>
         </div>

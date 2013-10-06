@@ -1,7 +1,6 @@
 fm.Package("jfm.hash");
 fm.AbstractClass("HashChange");
 jfm.hash.HashChange = function (me){this.setMe=function(_me){me=_me;};
-
 	var oldHash;
 	function onHashChange(){
 		var hash = location.hash.substring(1);
@@ -52,10 +51,14 @@ jfm.hash.HashChange = function (me){this.setMe=function(_me){me=_me;};
     this.onUrlChange = function(url, keyValue){
 		if(typeof url.view === 'string'){
 			fm.Include(url.view);
-			setTimeout(function(){
-				url.view = fm.isExist(url.view);
-				me.onUrlChange(url, keyValue);
-			}, 400);
+			//$(document).on('include_file_loaded', function(e, data){
+				//if(data === url.view){
+					setTimeout(function(){
+						url.view = fm.isExist(url.view);
+						me.onUrlChange(url, keyValue);
+					}, 1000);
+			///	}
+			//});
 		}
 		else{
 			if(currentView && url.view.toString() === currentView.toString() ){

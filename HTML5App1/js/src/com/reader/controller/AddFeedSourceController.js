@@ -1,6 +1,6 @@
 fm.Package("com.reader.controller");
 fm.Class("AddFeedSourceController", 'jfm.dom.Controller');
-com.reader.controller.AddFeedSourceController = function (base, me) {
+com.reader.controller.AddFeedSourceController = function (base, me, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
 
@@ -40,7 +40,9 @@ com.reader.controller.AddFeedSourceController = function (base, me) {
 		e.preventDefault();
 		window.external.notify('loading');
 		me.name.blur();
-		jQuery.get("http://cloud.feedly.com/v3/search/feeds?q="+me.name.val()+"&n=15", addResult).fail(function(resp){
+		var url = "/reader?method=getFeed&query_data=";
+		url = ReadFile.isPhone ? "http://cloud.feedly.com/v3/search/feeds?n=15&q=":url;
+		jQuery.get(url+me.name.val(), addResult).fail(function(resp){
 			window.external.notify('loading complete');
 			alert("fail");
  		});

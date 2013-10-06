@@ -54,6 +54,7 @@ com.reader.controller.EditNewsFeed = function (base, me, Controller) {
 
 	this.afterRender = function(){
 		me.feedlistContainer.height(window.innerHeight- me.feedlistContainer.position().top - 5);
+		
 		window.external.notify("loading complete");	
 		me.query.keyup(function(){
 			setTimeout(function(){

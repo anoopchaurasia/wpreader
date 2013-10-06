@@ -1,6 +1,6 @@
 fm.Package("lib");
 fm.Class("idbStore123");
-lib.idbStore123 = function(){};
+lib.idbStore123 = function (me){this.setMe=function(_me){me=_me;};};
 
 
 
@@ -652,7 +652,7 @@ lib.idbStore123 = function(){};
      * @example
      // given that there are two objects in the database with the keypath
      // values 1 and 2, and the call looks like this:
-     myStore.getBatch([1, 5, 2], onError, function (data) { … }, arrayType);
+     myStore.getBatch([1, 5, 2], onError, function (data) { ï¿½ }, arrayType);
 
      // this is what the `data` array will be like:
 
