@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2014/deployment" AppPlatformVersion="8.1">
   <DefaultLanguage xmlns="" code="en-US" />
   <App xmlns="" ProductID="{67e10ec3-9c65-4570-b068-a64674e29167}" Title="Column Reader" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Anoop Chaurasia" Description="Sample description" Publisher="Anoop" PublisherID="{c93ab250-dbd4-48b9-a5de-d6b70f38b5e4}">
     <IconPath IsRelative="true" IsResource="false">cr1.png</IconPath>
@@ -17,16 +17,11 @@
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">cr1.png</BackgroundImageURI>
           <Title>Column Reader</Title>
-          <BackContent>
-          </BackContent>
-          <BackBackgroundImageURI>
-          </BackBackgroundImageURI>
-          <BackTitle>
-          </BackTitle>
-          <DeviceLockImageURI>
-          </DeviceLockImageURI>
-          <HasLarge>
-          </HasLarge>
+          <BackContent></BackContent>
+          <BackBackgroundImageURI></BackBackgroundImageURI>
+          <BackTitle></BackTitle>
+          <DeviceLockImageURI></DeviceLockImageURI>
+          <HasLarge></HasLarge>
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>

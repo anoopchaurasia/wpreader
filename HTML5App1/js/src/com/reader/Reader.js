@@ -13,5 +13,8 @@ com.reader.Reader = function (me, FeedList, Settings, RegisterHash){this.setMe=f
 			$(document.body).css({'margin-top':$(window).scrollTop()});
 		});
 		new RegisterHash();
+		$(document).on('click','.ImageShow img', function(){
+			new me.package.slide.SlideShow($(this).attr('src'));
+		});
 	};
 };

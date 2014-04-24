@@ -5,16 +5,13 @@ com.reader.article.Article = function (me, Utility){this.setMe=function(_me){me=
 	'use strict';
 	this.Article = function (article, index) {
 		this.title = article.title;
-		this.link = article.link;
+		this.link = article.alternate[0].href;
 		this.id = index + 1;
-		try{
-			me.img = [];
-			for(var i=0; i <article.mediaGroups[0].contents.length; i++){
-				me.img.push(article.mediaGroups[0].contents[i]);
-			}
-			me.thumbnail = article.mediaGroups[0].contents[0].thumbnails[0].url;
-		}catch(e){};
-		this.contentSnippet = article.contentSnippet;
-		this.content = Utility.stripHTML(article.content);
+		this.image = article.visual;
+		var content = (article.content || article.summary);
+		var info = Utility.stripHTML( "<h1 class='title'>" + this.title + "</h1>" + content.content);
+		this.content = info[0];
+		this.imageList = info[1];
+		this.contentSnippet =  content.content.substring(0, 70);
 	};
 };

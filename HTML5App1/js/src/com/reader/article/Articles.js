@@ -8,7 +8,7 @@ com.reader.article.Articles = function (base, me, Article, ItemList){this.setMe=
     this.Articles = function (feed, sources) {
 	    this.title = feed.title;
 		this.thumbnail = sources.thumbnail;
-	    base(feed.entries, Article);
+	    base(feed.items, Article);
 	    com.reader.article.Articles.setInstance(me);
 	};
 

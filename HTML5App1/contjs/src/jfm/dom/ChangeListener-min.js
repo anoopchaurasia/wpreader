@@ -1,0 +1,2 @@
+fm.Package("jfm.dom"),fm.AbstractClass("ChangeListener"),jfm.dom.ChangeListener=function(e){this.setMe=function(t){e=t},this.callAll=function(e,n,r){var i=t[e];for(var s=0;i&&s<i.length;s++)i[s](n,r,e)};var t={};this.on=function(e,n){var e=e.replace(/\s/g,"").split(",");for(var r=0;r<e.length;r++)t[e[r]]=t[e[r]]||[],t[e[r]].push(n);return function(){for(var r=0;r<e.length;r++){var i=t[e[r]].indexOf(n);t[e[r]].splice(i,1)}}},this.ChangeListener=function(){}};
+fm.isMinified=true;

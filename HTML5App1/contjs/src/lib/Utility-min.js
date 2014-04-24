@@ -1,0 +1,2 @@
+fm.Package("lib"),fm.Class("Utility"),lib.Utility=function(e){this.setMe=function(t){e=t};var t=/<\/?[^<>]*\/?>/gim;Static.stripHTML=function(e){var t=$("<div>"+e+"</div>");return t.find("*").filter(function(){var e=this.tagName.toLowerCase();return e!="br"&&$.trim($(this).text())===""||e==="script"}).remove(),t.html().replace(/[\s\s]+|\n+/," ").replace(/\r\n|\sstyle=""|^\s/gim,"")}};
+fm.isMinified=true;

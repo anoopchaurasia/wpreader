@@ -23,7 +23,7 @@ com.reader.article.ArticleListController = function (base, me, Articles, Sources
 	 return a.replace(/\s/g, '&nbsp;');
 	};
     this.afterRender = function(){
-        me.articleMove.height(window.innerHeight-35);
+        me.articleMove.height(window.innerHeight-100);
         move(me.articleMove);
     }
     var pathid;

@@ -1,0 +1,2 @@
+fm.Package("com.reader.view"),fm.Import("com.reader.controller.EditNewsFeed"),fm.Class("EditFeed","jfm.dom.View"),com.reader.view.EditFeed=function(e,t,n,r){this.setMe=function(e){t=e},this.setMe=function(e){t=e},this.EditFeed=function(){this.url="/html/editfeed.view.html",this.items=[{controller:n,template:"/html/addfeeds.html",container:"#editfeed"}]},this.onChange=function(e,t){this.reRender(ArticleListController,e)}};
+fm.isMinified=true;

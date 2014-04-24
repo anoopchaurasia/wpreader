@@ -1,0 +1,2 @@
+fm.Package("lib"),fm.Class("ReadFile"),lib.ReadFile=function(e){this.setMe=function(t){e=t};var t;this.shortHand="ReadFile",Static.get=function(e,n){t[e]=n,setTimeout(function(){ReadFile.notify(e)},10)},Static.notify=function(t){if(!e.isPhone)return;NOTIFY(t)},Static.main=function(){t={},e.isPhone=location.href.indexOf("http")==-1,window.filecontent=function(e){var n=e.split("@|$");t[n[0]]?(n[1]||alert("no data for "+n[0]),t[n[0]](n[1]),delete t[n[0]]):alert("no cb for "+t[n[0]])}}};
+fm.isMinified=true;

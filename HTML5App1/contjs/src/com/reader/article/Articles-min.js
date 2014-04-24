@@ -1,0 +1,2 @@
+fm.Package("com.reader.article"),fm.Import("com.reader.article.Article"),fm.Class("Articles","com.reader.abstract.ItemList"),com.reader.article.Articles=function(e,t,n,r){this.setMe=function(e){t=e},"use strict",this.setMe=function(e){t=e},this.Articles=function(r,i){this.title=r.title,this.thumbnail=i.thumbnail,e(r.entries,n),com.reader.article.Articles.setInstance(t)};var i;Static.setInstance=function(e){i=e},Static.getInstance=function(){return i}};
+fm.isMinified=true;

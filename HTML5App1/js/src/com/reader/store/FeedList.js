@@ -68,15 +68,15 @@ com.reader.store.FeedList = function (me){this.setMe=function(_me){me=_me;};
         myStore.get(1000, function(a){
 			if(!a){
 				fm.Include("com.reader.source.SourceList");
-				//$(document).on('include_file_loaded', function(e, data){
-					//if("com.reader.source.SourceList" === data){
+				$(document).on('include_file_loaded', function(e, data){
+					if("com.reader.source.SourceList" === data){
 						setTimeout(function(){
 							me.add(sourceList, function(){
 								paendingCB && paendingCB();
 							});
 						});
-					//}
-				//});
+					}
+				});
 			}else{
 				paendingCB && paendingCB();
 			}

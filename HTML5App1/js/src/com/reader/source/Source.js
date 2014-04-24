@@ -16,20 +16,25 @@ com.reader.source.Source = function (me, Articles) {
             cb(me.articles);
         }else{
             loadData(me.url, function(data){
-                me.articles = new Articles( data.feed, me );
+                me.articles = new Articles( data, me );
                 cb(me.articles);
             });
         }
     };
 
     function loadData (url, cb) {
-        url = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=9&callback=?&q=' + encodeURIComponent(url);
+		var baseURL;
+		if(location.href.indexOf('localhost') != -1){
+			baseURL = '/reader/getFeed';
+		}else{
+			baseURL = 'http://feedly.com/v3/mixes/contents?count=10&streamId=feed/' + url;
+		}
         var temp = (window.WinJS && window.WinJS.xhr) || jQuery.ajax;
-        temp({ url: url, dataType:'json', responseType:'json' }).done(
+        temp({ url: baseURL, dataType:'json', data: {query_data: url}, responseType:'json' }).done(
         function fulfilled(result) {
-            if (result.status === 200 || result.responseStatus === 200) {
-                cb( (result.response? JSON.parse(result.response) : result).responseData);
-            }
+         //   if (result.status === 200 || result.responseStatus === 200) {
+                cb( result);
+         //   }
          }, function(e){
              console.log(e.status);
         });

@@ -1,0 +1,2 @@
+fm.Package("com.reader.view"),fm.Import("com.reader.controller.AddFeedSourceController"),fm.Class("AddFeedSource","jfm.dom.View"),com.reader.view.AddFeedSource=function(e,t,n,r){this.setMe=function(e){t=e},this.AddFeedSource=function(){this.url="/html/addfeedsource.view.html",this.items=[{controller:n,template:"/html/addfeedsource.html",container:"#container"}]},this.onChange=function(e,t){this.reRender(ArticleListController,e)}};
+fm.isMinified=true;

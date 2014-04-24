@@ -1,9 +1,10 @@
 fm.Package("com.reader.article");
 fm.Import("com.reader.source.Sources");
+fm.Import("com.reader.slide.SlideShow");
 fm.Import("com.reader.setting.Settings");
 fm.Import("lib.FillContent")
 fm.Class("ArticleController", 'jfm.dom.Controller');
-com.reader.article.ArticleController = function (base, me, Sources, Settings, FillContent, Controller) {
+com.reader.article.ArticleController = function (base, me, Sources, SlideShow, Settings, FillContent, Controller) {
     'use strict';
     this.setMe = function (_me) { me = _me; };
     var fontChange;
@@ -13,14 +14,14 @@ com.reader.article.ArticleController = function (base, me, Sources, Settings, Fi
             cb();
 
             fontChange = Settings.getInstance().on('fontSize,color_class,window-resize', function () {
-                create(me.article.content);
+                create(me.article.content, me.article.image);
             });
 			
         });
     };
 
     this.afterRender = function(){
-        create(me.article.content);
+        create(me.article.content, me.article.image);
         move(me.articleContainer);
     };
 
@@ -40,8 +41,8 @@ com.reader.article.ArticleController = function (base, me, Sources, Settings, Fi
     }
     var multi = 18;
     var setTimeOut;
-    function create(data) {
-        data = "<h1 class='title'>" + me.article.title + "</h1>" + data;
+    function create(data, image) {
+
         var articleContainer = $("#articleContainer").empty();
         var articalWidth = getWidth(Settings.getInstance().fontSize), margins = 0;
         articleContainer.parent().css('fontSize', Settings.getInstance().fontSize);
@@ -51,8 +52,18 @@ com.reader.article.ArticleController = function (base, me, Sources, Settings, Fi
         var bodyHeight = window.innerHeight - articleContainer.offset().top - 10;
         var content = new FillContent();
         var i = 0;
+        var removeHeight = margins + 30;
+		//data = "<h1 class='title'>" + me.article.title + "</h1>" + data;
+        if(false){
+            i = 1;
+            var elem = $(htm).appendTo(articleContainer);
+            elem.find("div.s").height(bodyHeight - removeHeight - 10).width(articalWidth);
+            elem.find("div.s").html('<img style="max-width:100%;max-height:100%" src="'+image.url+'">');
+            var imageHeight = Math.min(image.height, (articalWidth/image.width)*image.height);
+			elem.find("div.s").append("<div class='inImage' style='height:"+ (bodyHeight - removeHeight - 10 - imageHeight ) + "px; width:100%'></div>");
+			trancatedLength = content.truncateWithHeight(elem.find("div.inImage"), trancatedLength[0], data);			
+		}
         function recursive() {
-            var removeHeight = margins + 30;
             if (trancatedLength[1] <= 0) {
                 renderComplete(1, i);
                 articleContainer.append('<br style="clear:both" />');

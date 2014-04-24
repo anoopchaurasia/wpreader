@@ -1,0 +1,2 @@
+fm.Package("com.reader.view"),fm.Import("com.reader.article.ArticleListController"),fm.Class("NewsList","jfm.dom.View"),com.reader.view.NewsList=function(e,t,n,r){this.setMe=function(e){t=e},this.setMe=function(e){t=e},this.NewsList=function(){this.url="/html/newslist.view.html",this.items=[{controller:n,template:"/html/articles.html",container:"#dynamic"}]},this.onChange=function(e,t){this.reRender(n,e)}};
+fm.isMinified=true;

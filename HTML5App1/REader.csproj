@@ -12,19 +12,22 @@
     <RootNamespace>HTML5App1</RootNamespace>
     <AssemblyName>HTML5App1</AssemblyName>
     <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
-    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <SilverlightVersion>
+    </SilverlightVersion>
     <SilverlightApplication>true</SilverlightApplication>
     <SupportedCultures>
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>HTML5App1_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>REader_$(Configuration)_$(Platform).xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>HTML5App1.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <TargetFrameworkProfile />
+    <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,6 +61,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -68,6 +72,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
     <DebugSymbols>true</DebugSymbols>
@@ -79,6 +84,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
     <DebugType>pdbonly</DebugType>
@@ -89,6 +95,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget />
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -116,6 +123,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
@@ -123,6 +133,13 @@
     <None Include="REader_2013_10_08_02_03_09.sap" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\WideLogo.png" />
     <Content Include="contjs\jsfm-min.js" />
     <Content Include="contjs\src\com\reader\abstract\ItemList-min.js" />
     <Content Include="contjs\src\com\reader\article\Article-min.js" />
@@ -135,6 +152,7 @@
     <Content Include="contjs\src\com\reader\Reader-min.js" />
     <Content Include="contjs\src\com\reader\setting\Settings-min.js" />
     <Content Include="contjs\src\com\reader\setting\SettingsController-min.js" />
+    <Content Include="contjs\src\com\reader\slide\SlideShow.js" />
     <Content Include="contjs\src\com\reader\source\Source-min.js" />
     <Content Include="contjs\src\com\reader\source\SourceController-min.js" />
     <Content Include="contjs\src\com\reader\source\SourceList-min.js" />
@@ -159,6 +177,42 @@
     <Content Include="cr1.png" />
     <Content Include="css\phone.css" />
     <Content Include="css\reader.css" />
+    <Content Include="js\jsfm.js" />
+    <Content Include="js\src\com\reader\abstract\ItemList.js" />
+    <Content Include="js\src\com\reader\article\Article.js" />
+    <Content Include="js\src\com\reader\article\ArticleController.js" />
+    <Content Include="js\src\com\reader\article\ArticleListController.js" />
+    <Content Include="js\src\com\reader\article\Articles.js" />
+    <Content Include="js\src\com\reader\controller\AddFeedSourceController.js" />
+    <Content Include="js\src\com\reader\controller\EditNewsFeed.js" />
+    <Content Include="js\src\com\reader\hash\RegisterHash.js" />
+    <Content Include="js\src\com\reader\Reader.js" />
+    <Content Include="js\src\com\reader\setting\Settings.js" />
+    <Content Include="js\src\com\reader\setting\SettingsController.js" />
+    <Content Include="js\src\com\reader\slide\SlideShow.js" />
+    <Content Include="js\src\com\reader\source\Source.js" />
+    <Content Include="js\src\com\reader\source\SourceController.js" />
+    <Content Include="js\src\com\reader\source\SourceList.js" />
+    <Content Include="js\src\com\reader\source\Sources.js" />
+    <Content Include="js\src\com\reader\store\FeedList.js" />
+    <Content Include="js\src\com\reader\view\AddFeedSource.js" />
+    <Content Include="js\src\com\reader\view\Article.js" />
+    <Content Include="js\src\com\reader\view\EditFeed.js" />
+    <Content Include="js\src\com\reader\view\Home.js" />
+    <Content Include="js\src\com\reader\view\NewsList.js" />
+    <Content Include="js\src\jfm\dom\ChangeListener.js" />
+    <Content Include="js\src\jfm\dom\Controller.js" />
+    <Content Include="js\src\jfm\dom\DomManager.js" />
+    <Content Include="js\src\jfm\dom\ListView.js" />
+    <Content Include="js\src\jfm\dom\View.js" />
+    <Content Include="js\src\jfm\hash\HashChange.js" />
+    <Content Include="js\src\lib\ChangeListener.js" />
+    <Content Include="js\src\lib\FillContent.js" />
+    <Content Include="js\src\lib\idbStore.js" />
+    <Content Include="js\src\lib\MSGesture.js" />
+    <Content Include="js\src\lib\parser.js" />
+    <Content Include="js\src\lib\ReadFile.js" />
+    <Content Include="js\src\lib\Utility.js" />
     <Resource Include="img\ajax-loader.gif" />
     <Content Include="Html\addfeeds.html" />
     <Content Include="Html\article.html" />
@@ -330,9 +384,7 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

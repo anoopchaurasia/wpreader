@@ -15,6 +15,13 @@ var sourceList = [{
     "thumbnail": "/img/favicon/1001.png",
     "full": true
 }, {
+	website: "http://feeds.feedburner.com/fakingnews",
+	url: "http://feeds.feedburner.com/fakingnews",
+	type: "Other",
+	id: 124467,
+	full: false,
+	name: 'Faking News'
+}, {
     "website": "http://www.theverge.com/",
     "url": "http://www.theverge.com/rss/full.xml",
     "type": "Tech",
